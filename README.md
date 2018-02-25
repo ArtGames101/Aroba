@@ -1,7 +1,7 @@
 # Aroba
 a Small, Fast and Smart Operating System
 
-![Version](https://img.shields.io/badge/Version-v11.0-blue.svg?style=social)   ![Size](https://img.shields.io/badge/ArtSystem%20Size-500%20KB-green.svg)
+![Version](https://img.shields.io/badge/Version-v1.0-blue.svg?style=social)   ![Size](https://img.shields.io/badge/ArtSystem%20Size-500%20KB-green.svg)
 
 # Verification code
 
