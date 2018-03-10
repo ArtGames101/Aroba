@@ -38,7 +38,8 @@ while [ $RET -eq 0 ]; do
         sensible-browser "http://artsystem.webstarts.com"
      else
        if [ "$GAME" != "" ]; then
-          python3 run.py
+          x-terminal-emulator -t 'ArtSystem Aroba' -e python3 run.py
+          exit
        fi
      fi
   fi

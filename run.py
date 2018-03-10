@@ -19,19 +19,20 @@ except:
     pass
 from data import upgradestay as upg
 try:
-    from user import logindata as logind
-    from user import loginpass as loginp
-    from user import parental as parent
-    from user import reminder as remind
-    from user import img
+    from user.user1 import logindata as logind
+    from user.user1 import loginpass as loginp
+    from user.user1 import parental as parent
+    from user.user1 import reminder as remind
+    from user.user1 import img
 except:
     pass
 
+# Lobit Imports
 try:
     from data.lobit import restricted as lrist
 except:
     input("( ҉ ) Lobit ERROR: Could not import data.lobit.restricted")
-    warn()
+    pass
 # Version
 vr = "1.0"
 version = "v{}-Alpha".format(vr)
@@ -104,14 +105,6 @@ except Exception as e:
     except:
         pass
 
-try:
-    import introduction
-except Exception as e:
-    try:
-        exc = '{}: {}'.format(type(e).__name__, e)
-        error.write(exc)
-    except:
-        pass
 
 IS_WINDOWS = os.name == "nt"
 IS_MAC = sys.platform == "darwin"
@@ -169,6 +162,84 @@ def neww():
           " And More!")
     input("\n"
           "Enter")
+    lobitintro()
+def lobitintro():
+    clear_screen()
+    print("Lobit  ҉  \n"
+          "==============")
+    print("\n"
+          "Hello i am Lobit  ҉  your ArtSystem Personal Assistant!\n"
+          "\n"
+          "My job is to help you when you need to find something or just need someone to talk to!\n"
+          "\n"
+          "1. Take a Tour\n"
+          "\n"
+          "2. Next")
+    choice = user_choice()
+    if choice == "1":
+        lobittour()
+    if choice == "2":
+        newww()
+    else:
+        lobitintro()
+
+def lobittour():
+    clear_screen()
+    print("Lobit  ҉\n"
+          "============")
+    print("\n"
+          "Options:\n"
+          "\n"
+          "1. What is Lobit?\n"
+          "2. Where are the Lobit Files Located?\n"
+          "3. What does lobit do?\n"
+          "\n"
+          "0. Back")
+    choice = user_choice()
+    if choice == "1":
+        clear_screen()
+        print("A note from the developers\n"
+              "==============================\n"
+              "Lobit   ҉ is a Personal Assistant Designed by MrBackPack\n"
+              "and programmed by ArtGames101")
+        print("\n"
+              "Information about Lobit\n"
+              "===========================\n"
+              "Lobit is a Personal Assistant that is designed to\n"
+              "help you find files/applications or just to talk to!\n")
+        input("\n"
+              "Back")
+        lobittour()
+    if choice == "2":
+        clear_screen()
+        print("Lobit Files\n"
+              "===============\n"
+              "Most of Lobit's Code is intergrated into ArtSystem but...\n"
+              "if you go to '/data/lobit' or '\data\lobit' you can find a file called restricted.py\n"
+              "which contains phrases that Lobit Either Disagrees with or phrases that make lobit says something funny")
+        input("\n"
+              "Back")
+        lobittour()
+    if choice == "3":
+        clear_screen()
+        print("What can lobit do\n"
+              "=====================\n"
+              "lobit can:\n"
+              "\n"
+              "* Help you find things\n"
+              "* Can talk to you\n"
+              "* Can tell jokes\n"
+              "* Can Search for things\n"
+              "And more!\n")
+        input("\n"
+              "Back")
+        lobittour()
+    if choice == "0":
+        lobitintro()
+    else:
+        lobittour()
+
+def newww():
     clear_screen()
     print("(A≈) ArtSystem Aroba {}\n"
           "==========================".format(vr))
@@ -201,7 +272,7 @@ def warn():
     print("(A≈) ArtSystem Aroba\n"
           "==========================")
     print("\n"
-          "Warning : Please Put ArtSystem in Full Screen!"
+          "INFO : Please Put ArtSystem in Full Screen!"
           "\n"
           "Redirecting in 3...")
     time.sleep(1)
@@ -209,7 +280,7 @@ def warn():
     print("(A≈) ArtSystem Aroba\n"
           "==========================")
     print("\n"
-          "Warning : Please Put ArtSystem in Full Screen!"
+          "INFO : Please Put ArtSystem in Full Screen!"
           "\n"
           "Redirecting in 2...")
     time.sleep(1)
@@ -217,7 +288,7 @@ def warn():
     print("(A≈) ArtSystem Aroba\n"
           "==========================")
     print("\n"
-          "Warning : Please Put ArtSystem in Full Screen!"
+          "INFO : Please Put ArtSystem in Full Screen!"
           "\n"
           "Redirecting in 1...")
     time.sleep(1)
@@ -426,9 +497,9 @@ def loading():
 def welcome():
     clear_screen()
     try:
-        from user import logindata
-        from user import img
-        from user import loginpass
+        from user.user1 import logindata
+        from user.user1 import img
+        from user.user1 import loginpass
         print(logindata.USERNAME)
         print(img.usrimg)
         print(loginpass.PASSWORD)
@@ -481,7 +552,7 @@ def welcome():
                   "\n"
                   "\n"
                   "r. Register\n"
-                  "0. More Options\n".format(logind.USERNAME))
+                  "0. More Options                                       w. Warnings\n".format(logind.USERNAME))
             choice = user_choice()
             if choice == "1":
                 login()
@@ -491,6 +562,8 @@ def welcome():
                 regwarn()
             if choice == "admin":
                 adlogin()
+            if choice == "w":
+                warnings()
             if choice == "0":
                 try:
                     mainmore()
@@ -508,7 +581,7 @@ def welcome():
                   "\n"
                   "\n"
                   "r. Register\n"
-                  "0. More Options\n".format(img.usrimg, logind.USERNAME))
+                  "0. More Options                                       w. Warnings\n".format(img.usrimg, logind.USERNAME))
             choice = user_choice()
             if choice == "1":
                 login()
@@ -518,6 +591,8 @@ def welcome():
                 regwarn()
             if choice == "admin":
                 adlogin()
+            if choice == "w":
+                warnings()
             if choice == "0":
                 try:
                     mainmore()
@@ -525,6 +600,16 @@ def welcome():
                     pass
             else:
                 welcome()
+
+def warnings():
+    clear_screen()
+    print("Warning!\n"
+          "============")
+    print("\n"
+          "1. Please make sure to logout properly\n"
+          "2. Please Report All bugs you find otherwise it could destroy your ArtSystem!\n")
+    input(".")
+    welcome()
 def mainmore():
     clear_screen()
     print("==============\n"
@@ -572,9 +657,9 @@ def restore():
           "=========\n")
     print("ArtSystem is restoring your old data!")
     try:
-        usr = open("user/logindata.py", "w")
+        usr = open("user/user1/logindata.py", "w")
         usr.write("USERNAME = '{}'".format(name.old))
-        pa = open("user/loginpass.py", "w")
+        pa = open("user/user1/loginpass.py", "w")
         pa.write("PASSWORD = '{}'".format(passw.old))
         time.sleep(5)
         input("ArtSystem Restored!")
@@ -582,9 +667,9 @@ def restore():
         pa.close()
         subprocess.call((sys.executable, "run.py"))
     except:
-        usr = open("Aroba/user/logindata.py", "w")
+        usr = open("Aroba/user/user1/logindata.py", "w")
         usr.write("USERNAME = '{}'".format(name.old))
-        pa = open("Aroba/user/loginpass.py", "w")
+        pa = open("Aroba/user/user1/loginpass.py", "w")
         pa.write("PASSWORD = '{}'".format(passw.old))
         time.sleep(5)
         input("ArtSystem Restored!")
@@ -1104,9 +1189,9 @@ def main():
     print("n. Notifications")
     print("\n{}".format(random.choice(ad)))
     print("\n\n\n"
-          " ___________________________________________________________________________ \n"
-          "|a. (A≈). Start | u. Upgrade | l. Load App | o. Office  | t. Tools          |\n"
-          "|_______________|____________|_____________|____________|___________________|")
+          " ____________________________________________________________________________________\n"
+          "|a. (A≈). Start | u. Upgrade Packages | l. Load App | o. Office  | t. Tools          |\n"
+          "|_______________|_____________________|_____________|____________|___________________|")
     choice = user_choice()
     if choice == "(o)":
         gm()
@@ -1154,7 +1239,7 @@ def main():
     if choice == "a":
         menu()
     if choice == "u":
-        subprocess.call((sys.executable, "upgrade.py"))
+        subprocess.call((sys.executable, "packup.py"))
     if choice == "t":
         tools()
     else:
@@ -1438,6 +1523,7 @@ def office():
           "1. Text Editor (ALPHA)\n"
           "2. Calculator  (ALPHA)\n"
           "3. Paint       (Stable)\n"
+          "4. PiePlayer   (BETA)\n"
           "\n"
           "0. Back")
     choice = user_choice()
@@ -1447,6 +1533,8 @@ def office():
         subprocess.call((sys.executable, "applications/aroba_apps/calculator.py"))
     if choice == "3":
         subprocess.call((sys.executable, "applications/aroba_apps/brush.py"))
+    if choice == "4":
+        subprocess.call((sys.executable, "applications/aroba_apps/musicplayer/run.py"))
     if choice == "0":
         main()
     else:
@@ -1797,12 +1885,12 @@ def advancedsettings():
           "  Settings  \n"
           "============\n")
     print("n. Change Recent Notification")
-    print("u. Upgrade to {}".format(nextup))
+    print("u. Update Packages")
+    print("l. Lobit Settings")
     print("\n"
           "Danger Zone!!!:\n"
           "\n")
     print("d. ****Delete Accoount****  (Deletes Current Account!)")
-    print("o. ****Overwrite ArtSystem**** (Fully Destroys the main System!)")
     print("\n"
           "r. Restart (Saves Settings)\n"
           "0. Back")
@@ -1810,11 +1898,11 @@ def advancedsettings():
     if choice == "n":
         notifichange()
     if choice == "u":
-        subprocess.call((sys.executable, "upgrade.py"))
+        subprocess.call((sys.executable, "packup.py"))
+    if choice == "l":
+        lobitsettings()
     if choice == "d":
         deleteacc()
-    if choice == "o":
-        override()
     if choice == "r": 
         subprocess.call((sys.executable, "run.py"))
     if choice == "0":
@@ -1822,6 +1910,48 @@ def advancedsettings():
     else:
         advancedsettings()
 
+def lobitsettings():
+    clear_screen()
+    print("Lobit  ҉  Settings\n"
+          "======================")
+    try:
+        from data.lobit.settings import active
+    except:
+        print("ed. Enable/Disable Lobit (Status : Unknown)")
+    try:
+        if active.active == True:
+            print("ed. Enable/Disable Lobit (Status : Enabled)")
+        else:
+            print("ed. Enable/Disable Lobit (Status : Disabled)")
+    except:
+        pass
+    choice = user_choice()
+    if choice == "ed":
+        try:
+            if active.active == True:
+                a = open("data/lobit/settings/active.py", "w")
+                a.write("active = False")
+                a.close()
+                input("Lobit Disabled!")
+                subprocess.call((sys.executable, "run.py"))
+            if active.active == False:
+                a = open("data/lobit/settings/active.py", "w")
+                a.write("active = True")
+                a.close()
+                input("Lobit Enabled!")
+                subprocess.call((sys.executable, "run.py"))
+            else:
+                a = open("data/lobit/settings/active.py", "w")
+                a.write("active = True")
+                a.close()
+                input("Lobit Enabled!")
+                subprocess.call((sys.executable, "run.py"))
+        except:
+            a = open("data/lobit/settings/active.py", "w")
+            a.write("active = False")
+            a.close()
+            input("Lobit Disabled!")
+            subprocess.call((sys.executable, "run.py"))
 def sysinfo():
     clear_screen()
     # Ping (str(round((t2-t1)*1000)
@@ -2046,138 +2176,150 @@ def menu():
         main()
 
 def search():
-    clear_screen()
-    print("( ҉ ) Hello i am Lobit Your Personal Assistant!\n"
-          "     What are you looking for?\n"
-          "\n"
-          "Type what you want me to search for\n"
-          "\n"
-          "e. Back")
-    choice = user_choice()
-    if choice in lrist.phra:
-        if choice == lrist.sd:
-            clear_screen()
-            print("( ҉ ) 3...")
-            time.sleep(2)
-            clear_screen()
-            print("( ҉ ) 2...")
-            time.sleep(2)
-            clear_screen()
-            print("( ҉ ) 2...")
-            time.sleep(2)
-            clear_screen()
-            print("( ҉ ) I cant self destruct but... I shutdown ArtSystem for you!")
-            sys.exit(50)
-        if choice == lrist.t:
-            clear_screen()
-            input("( ҉ ) Trojans : Little Computer Bugs things that kill EVERYTHING!")
-            search()
-        if choice == lrist.i:
-            clear_screen()
-            input("( ҉ ) Sorry but i dont feel the same. I am just a computer program")
-            search()
-        if choice == lrist.w:
-            clear_screen()
-            print("( ҉ ) ...")
-            input("\n"
-                  "( ҉ ) Sorry i could not respond to 'marry'")
-            search()
-        if choice == lrist.ww:
-            clear_screen()
-            print("( ҉ ) ............")
-            input("\n"
-                  "( ҉ ) Nope.")
-            search()
-    if choice == "help":
+    from data.lobit.settings import active
+    if active.active == True:
         clear_screen()
-        input("( ҉ ) Exactly what im doing!")
-        search()
-    if choice == "store":
-        clear_screen()
-        print("( ҉ ) Here are two Results i found!:\n"
+        print("( ҉ ) Hello i am Lobit Your Personal Assistant!\n"
+              "     What are you looking for?\n"
               "\n"
-              "1. ArtSystem Store\n"
-              "2. Snake\n"
+              "Type what you want me to search for\n"
               "\n"
-              "0. Search again")
+              "e. Back")
         choice = user_choice()
-        if choice == "1":
-            store()
-        if choice == "2":
-            storesnake()
-        if choice == "0":
+        if choice in lrist.phra:
+            if choice == lrist.sd:
+                clear_screen()
+                print("( ҉ ) 3...")
+                time.sleep(2)
+                clear_screen()
+                print("( ҉ ) 2...")
+                time.sleep(2)
+                clear_screen()
+                print("( ҉ ) 2...")
+                time.sleep(2)
+                clear_screen()
+                print("( ҉ ) I cant self destruct but... I shutdown ArtSystem for you!")
+                sys.exit(50)
+            if choice == lrist.t:
+                clear_screen()
+                input("( ҉ ) Trojans : Little Computer Bugs things that kill EVERYTHING!")
+                search()
+            if choice == lrist.i:
+                clear_screen()
+                input("( ҉ ) Sorry but i dont feel the same. I am just a computer program")
+                search()
+            if choice == lrist.w:
+                clear_screen()
+                print("( ҉ ) ...")
+                input("\n"
+                      "( ҉ ) Sorry i could not respond to 'marry'")
+                search()
+            if choice == lrist.ww:
+                clear_screen()
+                print("( ҉ ) ............")
+                input("\n"
+                      "( ҉ ) Nope.")
+                search()
+        if choice == "help":
+            clear_screen()
+            input("( ҉ ) Exactly what im doing!")
             search()
-    if choice == "web":
+        if choice == "store":
+            clear_screen()
+            print("( ҉ ) Here are two Results i found!:\n"
+                  "\n"
+                  "1. ArtSystem Store\n"
+                  "2. Snake\n"
+                  "\n"
+                  "0. Search again")
+            choice = user_choice()
+            if choice == "1":
+                store()
+            if choice == "2":
+                storesnake()
+            if choice == "0":
+                search()
+        if choice == "web":
+            clear_screen()
+            print("( ҉ ) Here are two Results i found!:\n"
+                  "\n"
+                  "1. Office\n"
+                  "2. Quantum WebBrowser\n"
+                  "\n"
+                  "0. Search again")
+            choice = user_choice()
+            if choice == "1":
+                office()
+            if choice == "2":
+                subprocess.call((sys.executable, "web/web.py"))
+            if choice == "0":
+                search()
+        if choice == "settings":
+            clear_screen()
+            print("( ҉ ) Here are two Results i found!:\n"
+                  "\n"
+                  "1. Settings\n"
+                  "2. Quantum WebBrowser\n"
+                  "\n"
+                  "0. Search again")
+            choice = user_choice()
+            if choice == "1":
+                settings()
+            if choice == "2":
+                subprocess.call((sys.executable, "web/web.py"))
+            if choice == "0":
+                search()
+        if choice == "e":
+            main()
+        else:
+            try:
+                subprocess.call((sys.executable, "data/lobit/sai.py"))
+            except:
+                clear_screen()
+                print("( ҉ ) I Did not understand what you searched for '{}':\n"
+                      "Did you mean?:\n"
+                      "\n"
+                      "1. Settings\n"
+                      "2. Quantum WebBrowser\n"
+                      "3. System Info\n"
+                      "4. How do i find the Admin Console\n"
+                      "5. Tell A Joke\n"
+                      "6. Who are you\n"
+                      "7. Other\n"
+                      "\n"
+                      "0. Search again".format(choice))
+                choice = user_choice()
+                if choice == "1":
+                    settings()
+                if choice == "2":
+                    subprocess.call((sys.executable, "web/web.py"))
+                if choice == "3":
+                    sysinfo()
+                if choice == "4":
+                    clear_screen()
+                    input("You can Access The Admin Console when at the login page by typing 'admin'!")
+                    search()
+                if choice == "5":
+                    joke()
+                if choice == "6":
+                    clear_screen()
+                    print("My name is Lobit ҉  and i am Your Personal Assistant for ArtSystem!\n"
+                          "I can help you find Applications that you are looking for, Tell Jokes,\n"
+                          "And Help you find information about ArtSystem!\n"
+                          "\n"
+                          "I cant Wait to help you!")
+                    input("\n"
+                          "Back")
+                    search()
+                if choice == "0":
+                    search()
+    if active.active == False:
         clear_screen()
-        print("( ҉ ) Here are two Results i found!:\n"
-              "\n"
-              "1. Office\n"
-              "2. Quantum WebBrowser\n"
-              "\n"
-              "0. Search again")
-        choice = user_choice()
-        if choice == "1":
-            office()
-        if choice == "2":
-            subprocess.call((sys.executable, "web/web.py"))
-        if choice == "0":
-            search()
-    if choice == "settings":
-        clear_screen()
-        print("( ҉ ) Here are two Results i found!:\n"
-              "\n"
-              "1. Settings\n"
-              "2. Quantum WebBrowser\n"
-              "\n"
-              "0. Search again")
-        choice = user_choice()
-        if choice == "1":
-            settings()
-        if choice == "2":
-            subprocess.call((sys.executable, "web/web.py"))
-        if choice == "0":
-            search()
-    if choice == "e":
+        print("( ҉ ) Opps! Looks like i have been disabled!")
+        input(".")
         main()
     else:
-        clear_screen()
-        print("( ҉ ) I Did not understand what you searched for '{}':\n"
-              "Did you mean?:\n"
-              "\n"
-              "1. Settings\n"
-              "2. Quantum WebBrowser\n"
-              "3. System Info\n"
-              "4. How do i find the Admin Console\n"
-              "5. Tell A Joke\n"
-              "6. Who are you\n"
-              "7. Other\n"
-              "\n"
-              "0. Search again".format(choice))
-        choice = user_choice()
-        if choice == "1":
-            settings()
-        if choice == "2":
-            subprocess.call((sys.executable, "web/web.py"))
-        if choice == "3":
-            sysinfo()
-        if choice == "4":
-            clear_screen()
-            input("You can Access The Admin Console when at the login page by typing 'admin'!")
-            search()
-        if choice == "5":
-            joke()
-        if choice == "6":
-            clear_screen()
-            print("My name is Lobit ҉  and i am Your Personal Assistant for ArtSystem!\n"
-                  "I can help you find Applications that you are looking for, Tell Jokes,\n"
-                  "And Help you find information about ArtSystem!\n"
-                  "\n"
-                  "I cant Wait to help you!")
-            input("\n"
-                  "Back")
-            search()
-        if choice == "0":
-            search()
+        main()
 
 def joke():
     clear_screen()
@@ -2414,9 +2556,11 @@ def store():
         print("=================\n"
               " ArtSystem Store \n"
               "=================\n")
+        print("Categories:")
         print("1. Featured")
         print("2. Games")
         print("3. Apps")
+        print("4. Lobit Upgrades")
         print("4. Passes")
         print("0. Back")
         choice = user_choice()
@@ -2427,9 +2571,26 @@ def store():
         if choice == "3":
             apps()
         if choice == "4":
+            lobitup()
+        if choice == "5":
             passes()
         if choice == "0":
             main()
+
+def lobitup():
+    clear_screen()
+    print("================\n"
+          " Lobit Upgrades \n"
+          "================\n")
+    print("\n"
+          "1. Talk to Lobit (AI) (ArtSystem)\n"
+          "\n"
+          "0. Back")
+    choice = user_choice()
+    if choice == "1":
+        storelobitsai()
+    if choice == "0":
+        store()
 
 def featured():
     clear_screen()
@@ -2486,6 +2647,47 @@ def apps():
     if choice == "0":
         store()
 
+def storelobitsai():
+    clear_screen()
+    print("Talk to Lobit (AI)\n"
+          "\n"
+          "Description:\n"
+          "You can talk to lobit\n"
+          "\n"
+          "Publisher:\n"
+          "MrBackPack & ArtSystem\n")
+    try:
+        from data.lobit import tai
+        print("Installed")
+    except:
+        print("i. Install")
+    print("0. Back")
+    choice = user_choice()
+    if choice == "i":
+        clear_screen()
+        print("Creating AI file...")
+        ai = open("data/lobit/tai.py", "w")
+        ai.write("# -*- coding: utf-8 -*-\n"
+                 "# Lobit (c) MrBackPack 2018\n"
+                 "import sys, os, random, lobsp\n"
+                 "\n"
+                 "def main():\n"
+                 "    print('( ҉ )'.format(random.choice(lobsp.s)))\n")
+        ai.close()
+        time.sleep(3)
+        clear_screen()
+        print("Creating Text files...")
+        txt = open("data/lobit/lobsp.py", "w")
+        txt.write("# Lobit (c) MrBackPack 2018\n"
+                  "import random\n"
+                  "\n"
+                  "s = ['Ok', 'hello', 'yes', 'im not sure', 'no', 'how are you', 'good']")
+        txt.close()
+        time.sleep(2)
+        clear_screen()
+        input("Done!")
+        storelobitsai()
+        
 def storeweb():
     clear_screen()
     print("Py Web Browser\n"
