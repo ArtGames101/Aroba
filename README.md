@@ -39,13 +39,13 @@ What things does ArtSystem have?
 * Password Security
 * Changelog
 * Safezone
-* FAST Upgrading
+* FAST Package Upgrading
 * Lag Free System
 * Working Web Browser
 * System Restore
 * Web Security
 * Built-in Office apps
-* Lobit ҉  Personal Assistant
+* Lobit  ҉    Personal Assistant
 
 And More!
 
