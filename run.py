@@ -859,7 +859,7 @@ def loginf1():
     if usrs == loginp1.PASSWORD:
         startsound(usera)
     else:
-        loginf()
+        loginf1()
 
 def login2():
     clear_screen()
@@ -931,7 +931,7 @@ def loginf2():
     if usrs == loginp2.PASSWORD:
         startsound()
     else:
-        loginf()
+        loginf2()
 def startsound(usera):
     clear_screen()
     print("\n"
