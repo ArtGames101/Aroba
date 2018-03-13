@@ -1,7 +1,7 @@
 # Aroba
 a Small, Fast and Smart Operating System
 
-![Version](https://img.shields.io/badge/Version-v1.0%20Alpha-blue.svg?style=social)   ![Size](https://img.shields.io/badge/ArtSystem%20Size-500%20KB-green.svg)
+![Version](https://img.shields.io/badge/Version-vUpdating-blue.svg?style=social)   ![Size](https://img.shields.io/badge/ArtSystem%20Size-500%20KB-green.svg)
 
 # Verification code
 
@@ -33,7 +33,6 @@ What things does ArtSystem have?
 * A Store
 * Game Selection
 * Settings
-* Username Setting
 * Game Passes
 * Statistics Checker
 * Password Security
@@ -46,6 +45,7 @@ What things does ArtSystem have?
 * Web Security
 * Built-in Office apps
 * Lobit  ҉    Personal Assistant
+* Multi-Users
 
 And More!
 
