@@ -19,14 +19,22 @@ except:
     pass
 from data import upgradestay as upg
 try:
-    from user.user1 import logindata as logind
-    from user.user1 import loginpass as loginp
-    from user.user1 import parental as parent
-    from user.user1 import reminder as remind
-    from user.user1 import img
+    from user.user1 import logindata as logind1
+    from user.user1 import loginpass as loginp1
+    from user.user1 import parental as parent1
+    from user.user1 import reminder as remind1
+    from user.user1 import img as img1
 except:
     pass
 
+try:
+    from user.user2 import logindata as logind2
+    from user.user2 import loginpass as loginp2
+    from user.user2 import parental as parent2
+    from user.user2 import reminder as remind2
+    from user.user2 import img as img2
+except:
+    pass
 # Lobit Imports
 try:
     from data.lobit import restricted as lrist
@@ -500,9 +508,16 @@ def welcome():
         from user.user1 import logindata
         from user.user1 import img
         from user.user1 import loginpass
+        from user.user2 import logindata as logindataa
+        from user.user2 import img as imgg
+        from user.user2 import loginpass as loginpasss
+        print("Testing Account Data... (Do not copy/use)")
         print(logindata.USERNAME)
         print(img.usrimg)
         print(loginpass.PASSWORD)
+        print(logindataa.USERNAME)
+        print(imgg.usrimg)
+        print(loginpasss.PASSWORD)
         clear_screen()
     except:
         clear_screen()
@@ -548,15 +563,19 @@ def welcome():
                   "\n"
                   "1. [?] {}\n"
                   "\n"
-                  "2. [G] Guest\n"
+                  "2. [?] {}\n"
+                  "\n"
+                  "3. [G] Guest\n"
                   "\n"
                   "\n"
                   "r. Register\n"
-                  "0. More Options                                       w. Warnings\n".format(logind.USERNAME))
+                  "0. More Options                                       w. Warnings\n".format(logind1.USERNAME, logind2.USERNAME))
             choice = user_choice()
             if choice == "1":
-                login()
+                login1()
             if choice == "2":
+                login2()
+            if choice == "3":
                 guesta()
             if choice == "r":
                 regwarn()
@@ -577,15 +596,19 @@ def welcome():
                   "\n"
                   "1. [{}] {}\n"
                   "\n"
-                  "2. [G] Guest\n"
+                  "2. [{}] {}\n"
+                  "\n"
+                  "3. [G] Guest\n"
                   "\n"
                   "\n"
                   "r. Register\n"
-                  "0. More Options                                       w. Warnings\n".format(img.usrimg, logind.USERNAME))
+                  "0. More Options                                       w. Warnings\n".format(img1.usrimg, logind1.USERNAME, img2.usrimg, logind2.USERNAME))
             choice = user_choice()
             if choice == "1":
-                login()
+                login1()
             if choice == "2":
+                login2()
+            if choice == "3":
                 guesta()
             if choice == "r":
                 regwarn()
@@ -765,13 +788,13 @@ def adloginf():
         admin()
     else:
         adloginf()
-def login():
+def login1():
     clear_screen()
     print("=========\n"
           " Welcome \n"
           "=========\n")
     try:
-        print("{}".format(logind.USERNAME))
+        print("{}".format(logind1.USERNAME))
     except:
         input("No User found!")
         register()
@@ -781,21 +804,22 @@ def login():
           "_____________\n"
           "\n"
           "[0. Switch User]")
-    choice = user_choice()
-    if choice == "0":
+    usrs = user_choice()
+    if usrs == "0":
         welcome()
-    if choice == loginp.PASSWORD:
-        startsound()
+    if usrs == loginp1.PASSWORD:
+        usera = logind1.USERNAME
+        startsound(usera)
     else:
-        loginf()
+        loginf1()
 
-def loginf():
+def loginf1():
     clear_screen()
     print("=========\n"
           " Welcome \n"
           "=========\n")
     try:
-        print("{}".format(logind.USERNAME))
+        print("{}".format(logind1.USERNAME))
     except:
         input("No User found!")
         register()
@@ -829,15 +853,86 @@ def loginf():
         print("\n"
               "Incorrect Password!")
     subprocess.call((sys.executable, "sounds/error.py"))
-    choice = user_choice()
-    if choice == "0":
+    usrs = user_choice()
+    if usrs == "0":
         welcome()
-    if choice == loginp.PASSWORD:
-        startsound()
+    if usrs == loginp1.PASSWORD:
+        startsound(usera)
     else:
         loginf()
 
-def startsound():
+def login2():
+    clear_screen()
+    print("=========\n"
+          " Welcome \n"
+          "=========\n")
+    try:
+        print("{}".format(logind2.USERNAME))
+    except:
+        input("No User found!")
+        register()
+    print("\n"
+          "Password\n"
+          "\n"
+          "_____________\n"
+          "\n"
+          "[0. Switch User]")
+    usrs = user_choice()
+    if usrs == "0":
+        welcome()
+    if usrs == loginp2.PASSWORD:
+        startsound()
+    else:
+        loginf1()
+
+def loginf2():
+    clear_screen()
+    print("=========\n"
+          " Welcome \n"
+          "=========\n")
+    try:
+        print("{}".format(logind2.USERNAME))
+    except:
+        input("No User found!")
+        register()
+    try:
+        if remind.rem == "None":
+            print("\n"
+                  "Password\n"
+                  "\n"
+                  "_____________\n"
+                  "\n"
+                  "[0. Switch User]")
+            print("\n"
+                  "Incorrect Password!")
+        else:
+            print("\n"
+                  "Password\n"
+                  "\n"
+                  "_____________\n"
+                  "\n"
+                  "Reminder : {}\n"
+                  "[0. Switch User]".format(remind.rem))
+            print("\n"
+                  "Incorrect Password!")
+    except:
+        print("\n"
+              "Password\n"
+              "\n"
+              "_____________\n"
+              "\n"
+              "[0. Switch User]")
+        print("\n"
+              "Incorrect Password!")
+    subprocess.call((sys.executable, "sounds/error.py"))
+    usrs = user_choice()
+    if usrs == "0":
+        welcome()
+    if usrs == loginp2.PASSWORD:
+        startsound()
+    else:
+        loginf()
+def startsound(usera):
     clear_screen()
     print("\n"
           "     / -----------\      \n"
@@ -852,7 +947,7 @@ def startsound():
           "                         \n"
           "        Welcome        \n")
     subprocess.call((sys.executable, "su.py"))
-    main()
+    main(usera)
 
 def regwarn():
     clear_screen()
@@ -865,12 +960,32 @@ def regwarn():
           "1. Continue  | 2. Back")
     choice = user_choice()
     if choice == "1":
-        register()
+        regwh()
     if choice == "2":
         welcome()
     else:
         regwarn()
-def register():
+
+def regwh():
+    clear_screen()
+    print("Registration\n"
+          "================")
+    print("\n"
+          "1. {}\n"
+          "2. {}\n"
+          "\n"
+          "0. Back")
+    choice = user_choice()
+    if choice == "1":
+        usr = "1"
+        register(usr)
+    if choice == "2":
+        usr = "2"
+        register(usr)
+    if choice == "0":
+        regwarn()
+        
+def register(usr):
     try:
         subprocess.call(('notify-send', 'Registration', 'Please do not exit until registration is over!'))
     except:
@@ -880,37 +995,54 @@ def register():
           "===============\n")
     print("1 Username  2 Password 3 Reminder 4 Avatar\n"
           "----------")
-    try:
-        loginw = open("user/logindata.py", "w")
-    except:
-        loginw = open("Aroba/user/logindata.py", "w")
     print("Name Yourself")
     choice = user_choice()
-    loginw.write("USERNAME = '{}'".format(choice))
-    loginw.close()
-    registerp()
+    if usr == "1":
+        try:
+            loginw = open("user/user1/logindata.py", "w")
+        except:
+            loginw = open("Aroba/user/user1/logindata.py", "w")
+        loginw.write("USERNAME = '{}'".format(choice))
+        loginw.close()
+    if usr == "2":
+        try:
+            loginw = open("user/user2/logindata.py", "w")
+        except:
+            loginw = open("Aroba/user/user2/logindata.py", "w")
+        loginw.write("USERNAME = '{}'".format(choice))
+        loginw.close()
+    registerp(usr)
 
-def registerp():
+def registerp(usr):
     clear_screen()
     print("Create Account\n"
           "===============\n")
     print("✓ Username  2 Password 3 Reminder 4 Avatar\n"
           "----------------------")
-    try:
-        loginpw = open("user/loginpass.py", "w")
-    except:
-        loginpw = open("Aroba/user/loginpass.py", "w")
     print("Choose a Password")
     choice = user_choice()
     if choice == "":
         input("That Password is restricted")
         registerp()
     else:
-        loginpw.write("PASSWORD = '{}'".format(choice))
-        loginpw.close()
-        registerl()
+        if usr == "1":
+            try:
+                loginpw = open("user/user1/loginpass.py", "w")
+            except:
+                loginpw = open("Aroba/user/user1/loginpass.py", "w")
+            loginpw.write("PASSWORD = '{}'".format(choice))
+            loginpw.close()
+            registerl(usr)
+        if usr == "2":
+            try:
+                loginpw = open("user/user2/loginpass.py", "w")
+            except:
+                loginpw = open("Aroba/user/user2/loginpass.py", "w")
+            loginpw.write("PASSWORD = '{}'".format(choice))
+            loginpw.close()
+            registerl(usr)
 
-def registerl():
+def registerl(usr):
     clear_screen()
     print("Create Account\n"
           "===============\n")
@@ -923,29 +1055,53 @@ def registerl():
     choice = user_choice()
     if choice == "1":
         clear_screen()
-        try:
-            rem = open("user/reminder.py", "w")
-        except:
-            rem = open("Aroba/user/reminder.py", "w")
-        print("Create Account\n"
-              "===============\n")
-        print("✓ Username  ✓ Password 3 Reminder 4 Avatar\n"
-              "---------------------------------")
-        print("Type Reminder message")
-        choice = user_choice()
-        rem.write("rem = '{}'".format(choice))
-        rem.close()
-        registeri()
+        if usr == "1":
+            try:
+                rem = open("user/user1/reminder.py", "w")
+            except:
+                rem = open("Aroba/user/user1/reminder.py", "w")
+            print("Create Account\n"
+                  "===============\n")
+            print("✓ Username  ✓ Password 3 Reminder 4 Avatar\n"
+                  "---------------------------------")
+            print("Type Reminder message")
+            choice = user_choice()
+            rem.write("rem = '{}'".format(choice))
+            rem.close()
+            registeri(usr)
+        if usr == "2":
+            try:
+                rem = open("user/user2/reminder.py", "w")
+            except:
+                rem = open("Aroba/user/user2/reminder.py", "w")
+            print("Create Account\n"
+                  "===============\n")
+            print("✓ Username  ✓ Password 3 Reminder 4 Avatar\n"
+                  "---------------------------------")
+            print("Type Reminder message")
+            choice = user_choice()
+            rem.write("rem = '{}'".format(choice))
+            rem.close()
+            registeri(usr)
     if choice == "2":
-        try:
-            rem = open("user/reminder.py", "w")
-        except:
-            rem = open("Aroba/user/reminder.py", "w")
-        rem.write("rem = 'None'")
-        rem.close()
-        registeri()
+        if usr == "1":
+            try:
+                rem = open("user/user1/reminder.py", "w")
+            except:
+                rem = open("Aroba/user/user1/reminder.py", "w")
+            rem.write("rem = 'None'")
+            rem.close()
+            registeri(usr)
+        if usr == "2":
+            try:
+                rem = open("user/user2/reminder.py", "w")
+            except:
+                rem = open("Aroba/user/user2/reminder.py", "w")
+            rem.write("rem = 'None'")
+            rem.close()
+            registeri(usr)
 
-def registeri():
+def registeri(usr):
     try:
         img = open("user/img.py", "w")
     except:
@@ -966,25 +1122,19 @@ def registeri():
           "n. None\n"
           "c. Custom")
     choice = user_choice()
-    try:
-        usr = open("data/restore/name.py", "w")
-        usr.write("old = '{}'".format(logind.USERNAME))
-        pas = open("data/restore/passw.py", "w")
-        pas.write("old = '{}'".format(loginp.PASSWORD))
-        usr.close()
-        pas.close()
-    except:
-        try:
-            usr = open("Aroba/data/restore/name.py", "w")
-            usr.write("old = '{}'".format(logind.USERNAME))
-            pas = open("Aroba/data/restore/passw.py", "w")
-            pas.write("old = '{}'".format(loginp.PASSWORD))
-            usr.close()
-            pas.close()
-        except:
-            print("ERR : Backup Failed")
     if choice == "1":
-        img.write("usrimg = ':D'")
+        if usr == "1":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = ':D'")
+        if usr == "2":
+            try:
+                img = open("user/user2/img.py", "w")
+            except:
+                img = open("Aroba/user/user2/img.py", "w")
+            img.write("usrimg = ':D'")
         clear_screen()
         input("Registration Complete!\n"
               "\n"
@@ -992,7 +1142,18 @@ def registeri():
         img.close()
         subprocess.call((sys.executable, "run.py"))
     if choice == "2":
-        img.write("usrimg = '^.^'")
+        if usr == "1":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = '^.^'")
+        if usr == "2":
+            try:
+                img = open("user/user2/img.py", "w")
+            except:
+                img = open("Aroba/user/user2/img.py", "w")
+            img.write("usrimg = '^.^'")
         clear_screen()
         input("Registration Complete!\n"
               "\n"
@@ -1000,7 +1161,18 @@ def registeri():
         img.close()
         subprocess.call((sys.executable, "run.py"))
     if choice == "3":
-        img.write("usrimg = '?!'")
+        if usr == "1":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = '?!'")
+        if usr == "2":
+            try:
+                img = open("user/user2/img.py", "w")
+            except:
+                img = open("Aroba/user/user2/img.py", "w")
+            img.write("usrimg = '?!'")
         clear_screen()
         input("Registration Complete!\n"
               "\n"
@@ -1008,7 +1180,18 @@ def registeri():
         img.close()
         subprocess.call((sys.executable, "run.py"))
     if choice == "4":
-        img.write("usrimg = ':)'")
+        if usr == "1":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = ':)'")
+        if usr == "2":
+            try:
+                img = open("user/user2/img.py", "w")
+            except:
+                img = open("Aroba/user/user2/img.py", "w")
+            img.write("usrimg = ':)'")
         clear_screen()
         input("Registration Complete!\n"
               "\n"
@@ -1016,7 +1199,18 @@ def registeri():
         img.close()
         subprocess.call((sys.executable, "run.py"))
     if choice == "5":
-        img.write("usrimg = ':4)'")
+        if usr == "1":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = ':4)'")
+        if usr == "2":
+            try:
+                img = open("user/user2/img.py", "w")
+            except:
+                img = open("Aroba/user/user2/img.py", "w")
+            img.write("usrimg = ':4)'")
         clear_screen()
         input("Registration Complete!\n"
               "\n"
@@ -1024,7 +1218,18 @@ def registeri():
         img.close()
         subprocess.call((sys.executable, "run.py"))
     if choice == "n":
-        img.write("usrimg = 'None'")
+        if usr == "1":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = 'None'")
+        if usr == "2":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = 'None'")
         clear_screen()
         input("Registration Complete!\n"
               "\n"
@@ -1036,7 +1241,18 @@ def registeri():
         print("Write an Avatar\n"
               "Recomended : Use 3 characters at most!")
         choice = user_choice()
-        img.write("usrimg = '{}'".format(choice))
+        if usr == "1":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = '{}'".format(choice))
+        if usr == "2":
+            try:
+                img = open("user/user1/img.py", "w")
+            except:
+                img = open("Aroba/user/user1/img.py", "w")
+            img.write("usrimg = '{}'".format(choice))
         clear_screen()
         input("Registration Complete!\n"
               "\n"
@@ -1150,7 +1366,7 @@ def admin():
         input("[ARTSYS] {}: command not found".format(choice))
         admin()
 
-def main():
+def main(usera):
     if c.currentgame == "snake":
         game = "snake"
     if c.currentgame == "Tetris":
@@ -1170,12 +1386,8 @@ def main():
     else:
         game = "None"
     clear_screen()
-    print("========================================================\n"
-          " {}        |  {}     \n"
-          "========================================================\n".format(c.NAMETAG, time.ctime()))
-
     if game in games:
-        print("(o). Disc Game ({})".format(game))
+        print("\n(o). Disc Game ({})".format(game))
     else:
         print("(o). Disc Game (Choose)")
     print("e. ArtSystem Aroba Events/help/Changelog")
@@ -1187,65 +1399,64 @@ def main():
     else:
         pass
     print("n. Notifications")
-    print("\n{}".format(random.choice(ad)))
-    print("\n\n\n"
-          " ____________________________________________________________________________________\n"
-          "|a. (A≈). Start | u. Upgrade Packages | l. Load App | o. Office  | t. Tools          |\n"
-          "|_______________|_____________________|_____________|____________|___________________|")
+    print("\n\n"
+          " _________________________________________________________________________________________________________\n"
+          "|a. (A≈). Start | u. Upgrade Packages | l. Load App | o. Office  | t. Tools   | {}  |\n"
+          "|_______________|_____________________|_____________|____________|____________|___________________________|".format(time.ctime()))
     choice = user_choice()
     if choice == "(o)":
-        gm()
+        gm(usera)
     if choice == "s":
         if parent.PAPASS == None:
-            store()
+            store(usera)
         else:
             clear_screen()
             print("Enter Parental Control Password")
             choice = user_choice()
             if choice == parent.PAPASS:
-                store()
+                store(usera)
             else:
-                main()
+                main(usera)
     if choice == "e":
-        events()
+        events(usera)
     if choice == "set":
         if parent.PAPASS == None:
-            settings()
+            settings(usera)
         else:
             clear_screen()
             print("Enter Parental Control Password")
             choice = user_choice()
             if choice == parent.PAPASS:
-                settings()
+                settings(usera)
             else:
-                main()
+                main(usera)
     if choice == "sa":
         if santa == True:
-            santagift()
+            santagift(usera)
         else:
-            main()
+            main(usera)
     if choice == "n":
-        notification()
+        notification(usera)
     if choice == "l":
-        loadapp()
+        loadapp(usera)
     if choice == "o":
-        office()
+        office(usera)
     if choice == "w":
         subprocess.call((sys.executable, "web/web.py"))
     if choice == "(A≈)":
-        menu()
+        menu(usera)
     if choice == "A":
-        menu()
+        menu(usera)
     if choice == "a":
-        menu()
+        menu(usera)
     if choice == "u":
         subprocess.call((sys.executable, "packup.py"))
     if choice == "t":
-        tools()
+        tools(usera)
     else:
-        main()
+        main(usera)
 
-def tools():
+def tools(usera):
     clear_screen()
     print("(A≈) ArtSystem Tools\n"
           "========================")
@@ -1257,13 +1468,13 @@ def tools():
           "0. Back")
     choice = user_choice()
     if choice == "a":
-        antivirus()
+        antivirus(usera)
     if choice == "s":
-        support()
+        support(usera)
     if choice == "0":
-        main()
+        main(usera)
 
-def support():
+def support(usera):
     clear_screen()
     print("(A≈) ArtSystem Support\n"
           "==========================")
@@ -1276,17 +1487,17 @@ def support():
           "0. Back")
     choice = user_choice()
     if choice == "1":
-        vagent()
+        vagent(usera)
     if choice == "2":
-        lagent()
+        lagent(usera)
     if choice == "0":
-        tools()
+        tools(usera)
 
-def vagent():
-    search()
+def vagent(usera):
+    search(usera)
 
 
-def antivirus():
+def antivirus(usera):
     clear_screen()
     print("(A≈) ArtSystem Antivirus\n"
           "      Keeping you safe!\n"
@@ -1299,11 +1510,11 @@ def antivirus():
           "0. Back")
     choice = user_choice()
     if choice == "1":
-        antiviruscan()
+        antiviruscan(usera)
     if choice == "0":
-        main()
+        main(usera)
 
-def antiviruscan():
+def antiviruscan(usera):
     clear_screen()
     print("(A≈) Antivirus Scaning...\n"
           "=============================")
@@ -1383,9 +1594,9 @@ def antiviruscan():
         print("Found ArtUnreal! '/applications '")
     except:
         pass
-    antivirusre()
+    antivirusre(usera)
 
-def antivirusre():
+def antivirusre(usera):
     clear_screen()
     print("(A≈) Antivirus Results\n"
           "==========================")
@@ -1512,10 +1723,10 @@ def antivirusre():
             main()
         except:
             input("Removed all Possible Viruses!")
-            main()
+            main(usera)
     if choice == "2":
-        main()
-def office():
+        main(usera)
+def office(usera):
     clear_screen()
     print("(A≈) ArtSystem Office\n"
           "=========================\n")
@@ -1536,10 +1747,10 @@ def office():
     if choice == "4":
         subprocess.call((sys.executable, "applications/aroba_apps/musicplayer/run.py"))
     if choice == "0":
-        main()
+        main(usera)
     else:
-        office()
-def loadapp():
+        office(usera)
+def loadapp(usera):
     clear_screen()
     print("(A≈) Load Application\n"
           "=========================\n\n"
@@ -1550,9 +1761,9 @@ def loadapp():
           "0. Exit")
     choice = user_choice()
     if choice == "office":
-        office()
+        office(usera)
     if choice == "0":
-        main()
+        main(usera)
     else:
         try:
             subprocess.call((sys.executable, "applications/{}".format(choice)))
@@ -1562,8 +1773,8 @@ def loadapp():
                 subprocess.call(("dir", "applications/{}".format(choice)))
             except:
                 input("[Error] App Can not be loaded!")
-                loadapp()
-def gm():
+                loadapp(usera)
+def gm(usera):
     if c.currentgame == "snake":
         game = "snake"
     if c.currentgame == "Tetris":
@@ -1609,11 +1820,11 @@ def gm():
         elif game == "GunRush":
             subprocess.call((sys.executable, "GunRush/run.py"))
     if choice == "2":
-        gms()
+        gms(usera)
     if choice == "0":
-        main()
+        main(usera)
 
-def gms():
+def gms(usera):
     clear_screen()
     print("Select a Game\n"
           "================")
@@ -1819,7 +2030,7 @@ def guestmain():
         guestmain()
 
 
-def notification():
+def notification(usera):
     clear_screen()
     print("=====================\n"
           " Newest Notification \n"
@@ -1837,8 +2048,8 @@ def notification():
     if choice == "0":
         print(".")
     else:
-        notification()
-def settings():
+        notification(usera)
+def settings(usera):
     if logind.USERNAME == "Guest":
         input("Guests cant do that!")
         guestmain()
@@ -1859,26 +2070,26 @@ def settings():
         print("0. Back")
         choice = user_choice()
         if choice == "s":
-            sysinfo()
+            sysinfo(usera)
         if choice == "u":
-            usernamec()
+            usernamec(usera)
         if choice == "pass":
-            passchange()
+            passchange(usera)
         if choice == "p":
             if parent.PAPASS == None:
-                parentalcontrol()
+                parentalcontrol(usera)
             else:
-                parentalsettings()
+                parentalsettings(usera)
         if choice == "a":
-            advancedsettings()
+            advancedsettings(usera)
         if choice == "r":
             subprocess.call((sys.executable, "run.py"))
         if choice == "0":
-            main()
+            main(usera)
         else:
-            settings()
+            settings(usera)
 
-def advancedsettings():
+def advancedsettings(usera):
     clear_screen()
     print("============\n"
           "  Advanced  \n"
@@ -1896,21 +2107,21 @@ def advancedsettings():
           "0. Back")
     choice = user_choice()
     if choice == "n":
-        notifichange()
+        notifichange(usera)
     if choice == "u":
         subprocess.call((sys.executable, "packup.py"))
     if choice == "l":
-        lobitsettings()
+        lobitsettings(usera)
     if choice == "d":
-        deleteacc()
+        deleteacc(usera)
     if choice == "r": 
         subprocess.call((sys.executable, "run.py"))
     if choice == "0":
-        settings()
+        settings(usera)
     else:
-        advancedsettings()
+        advancedsettings(usera)
 
-def lobitsettings():
+def lobitsettings(usera):
     clear_screen()
     print("Lobit  ҉  Settings\n"
           "======================")
@@ -1952,7 +2163,7 @@ def lobitsettings():
             a.close()
             input("Lobit Disabled!")
             subprocess.call((sys.executable, "run.py"))
-def sysinfo():
+def sysinfo(usera):
     clear_screen()
     # Ping (str(round((t2-t1)*1000)
     try:
@@ -1962,7 +2173,7 @@ def sysinfo():
         if IS_MAC:
             operate = "MAC"
         else:
-            operate = "GNU/Linux"
+            operate = "GNU/Linux/Other"
         t1 = time.perf_counter()
         time.sleep(0.678)
         t2 = time.perf_counter()
@@ -1978,14 +2189,14 @@ def sysinfo():
               "(c) ArtGames101".format(vr, version, size, (str(round((t2-t1)*1000))), operate))
         input("\n"
               "Back")
-        settings()
+        settings(usera)
     except:
         if IS_WINDOWS:
             operate = "Win"
         if IS_MAC:
             operate = "MAC"
         else:
-            operate = "GNU/Linux"
+            operate = "GNU/Linux/Other"
         t1 = time.perf_counter()
         time.sleep(0.678)
         t2 = time.perf_counter()
@@ -2000,9 +2211,9 @@ def sysinfo():
               "(c) ArtGames101".format(vr, version, (str(round((t2-t1)*1000))), operate))
         input("\n"
               "Back")
-        settings()
+        settings(usera)
 
-def deleteacc():
+def deleteacc(usera):
     clear_screen()
     print("=================\n"
           " Delete Account? \n"
@@ -2020,7 +2231,7 @@ def deleteacc():
         loginw.close()
         loginpw.close()
         subprocess.call((sys.executable, "run.py"))
-def override():
+def override(usera):
     if parent.PAPASS == None:
         clear_screen()
         print("====================\n"
@@ -2038,12 +2249,12 @@ def override():
             over.close()
             subprocess.call((sys.executable, "run.py"))
         if choice == "n":
-            main()
+            main(usera)
         else:
-            override()
+            override(usera)
     else:
-        main()
-def parentalsettings():
+        main(usera)
+def parentalsettings(usera):
     clear_screen()
     print("==================\n"
           " Parental Control \n"
@@ -2054,7 +2265,7 @@ def parentalsettings():
           "c. Clear Parental Password")
     choice = user_choice()
     if choice == "p":
-        parentalcontrol()
+        parentalcontrol(usera)
 
     if choice == "c":
         par = open("user/parental.py", "w")
@@ -2063,7 +2274,7 @@ def parentalsettings():
         input("Restarting...")
         par.close()
         subprocess.call((sys.executable, "run.py"))
-def parentalcontrol():
+def parentalcontrol(usera):
     clear_screen()
     print("==================\n"
           " Parental Control \n"
@@ -2072,12 +2283,12 @@ def parentalcontrol():
     choice = user_choice()
     if choice == loginp.PASSWORD:
         input("Accepted!")
-        parentalac()
+        parentalac(usera)
     else:
         input("Incorrect Password!")
-        settings()
+        settings(usera)
 
-def parentalac():
+def parentalac(usera):
     clear_screen()
     print("==================\n"
           " Parental Control \n"
@@ -2086,7 +2297,7 @@ def parentalac():
     choice = user_choice()
     if choice == loginp.PASSWORD:
         input("You can not use your account password!")
-        settings()
+        settings(usera)
     else:
         par = open("user/parental.py", "w")
         par.write("PAPASS = '{}'".format(choice))
@@ -2094,7 +2305,7 @@ def parentalac():
         input("Restarting...")
         par.close()
         subprocess.call((sys.executable, "run.py"))
-def usernamec():
+def usernamec(usera):
     clear_screen()
     print("============\n"
           "  Username  \n"
@@ -2106,9 +2317,9 @@ def usernamec():
     loginw.write("USERNAME = '{}'".format(choice))
     input("Done!")
     loginw.close()
-    settings()
+    settings(usera)
 
-def passchange():
+def passchange(usera):
     clear_screen()
     print("============\n"
           "  Password  \n"
@@ -2120,10 +2331,10 @@ def passchange():
     loginpw.write("USERNAME = '{}'".format(choice))
     input("Done!")
     loginpw.close()
-    settings()
+    settings(usera)
 
 
-def santagift():
+def santagift(usera):
     clear_screen()
     print("You will need internet for this if you have no internet push enter!")
     print("\n"
@@ -2141,16 +2352,15 @@ def santagift():
         notifi = open("log/notification.py", "w")
         notifi.write("import time\n"
                      "NOT = '{} |  {}'.format(time.ctime(), 'Collected Santa's Gift!')")
-        main()
+        main(usera)
     else:
-        main()
+        main(usera)
         
         
-def menu():
+def menu(usera):
     clear_screen()
-    print("=======\n"
-          " Start \n"
-          "=======\n")
+    print("{}\n"
+          "===================".format(usera))
     print("1. Office\n"
           "2. ArtSystem Store\n"
           "3. Settings\n"
@@ -2159,23 +2369,24 @@ def menu():
           "  |____________________|\n"
           "\n"
           "e. Back")
+    print("\n{}".format(random.choice(ad)))
     choice = user_choice()
     if choice == "1":
-        office()
+        office(usera)
     if choice == "2":
-        store()
+        store(usera)
     if choice == "3":
-        settings()
+        settings(usera)
     if choice == "0":
-        logout()
+        logout(usera)
     if choice == "s":
-        search()
+        search(usera)
     if choice == "e":
-        main()
+        main(usera)
     else:
-        main()
+        menu(usera)
 
-def search():
+def search(usera):
     from data.lobit.settings import active
     if active.active == True:
         clear_screen()
@@ -2203,17 +2414,17 @@ def search():
             if choice == lrist.t:
                 clear_screen()
                 input("( ҉ ) Trojans : Little Computer Bugs things that kill EVERYTHING!")
-                search()
+                search(usera)
             if choice == lrist.i:
                 clear_screen()
                 input("( ҉ ) Sorry but i dont feel the same. I am just a computer program")
-                search()
+                search(usera)
             if choice == lrist.w:
                 clear_screen()
                 print("( ҉ ) ...")
                 input("\n"
                       "( ҉ ) Sorry i could not respond to 'marry'")
-                search()
+                search(usera)
             if choice == lrist.ww:
                 clear_screen()
                 print("( ҉ ) ............")
@@ -2223,7 +2434,7 @@ def search():
         if choice == "help":
             clear_screen()
             input("( ҉ ) Exactly what im doing!")
-            search()
+            search(usera)
         if choice == "store":
             clear_screen()
             print("( ҉ ) Here are two Results i found!:\n"
@@ -2234,11 +2445,11 @@ def search():
                   "0. Search again")
             choice = user_choice()
             if choice == "1":
-                store()
+                store(usera)
             if choice == "2":
-                storesnake()
+                storesnake(usera)
             if choice == "0":
-                search()
+                search(usera)
         if choice == "web":
             clear_screen()
             print("( ҉ ) Here are two Results i found!:\n"
@@ -2249,11 +2460,11 @@ def search():
                   "0. Search again")
             choice = user_choice()
             if choice == "1":
-                office()
+                office(usera)
             if choice == "2":
                 subprocess.call((sys.executable, "web/web.py"))
             if choice == "0":
-                search()
+                search(usera)
         if choice == "settings":
             clear_screen()
             print("( ҉ ) Here are two Results i found!:\n"
@@ -2264,11 +2475,11 @@ def search():
                   "0. Search again")
             choice = user_choice()
             if choice == "1":
-                settings()
+                settings(usera)
             if choice == "2":
                 subprocess.call((sys.executable, "web/web.py"))
             if choice == "0":
-                search()
+                search(usera)
         if choice == "e":
             main()
         else:
@@ -2290,17 +2501,17 @@ def search():
                       "0. Search again".format(choice))
                 choice = user_choice()
                 if choice == "1":
-                    settings()
+                    settings(usera)
                 if choice == "2":
                     subprocess.call((sys.executable, "web/web.py"))
                 if choice == "3":
-                    sysinfo()
+                    sysinfo(usera)
                 if choice == "4":
                     clear_screen()
                     input("You can Access The Admin Console when at the login page by typing 'admin'!")
-                    search()
+                    search(usera)
                 if choice == "5":
-                    joke()
+                    joke(usera)
                 if choice == "6":
                     clear_screen()
                     print("My name is Lobit ҉  and i am Your Personal Assistant for ArtSystem!\n"
@@ -2310,29 +2521,29 @@ def search():
                           "I cant Wait to help you!")
                     input("\n"
                           "Back")
-                    search()
+                    search(usera)
                 if choice == "0":
-                    search()
+                    search(usera)
     if active.active == False:
         clear_screen()
         print("( ҉ ) Opps! Looks like i have been disabled!")
         input(".")
-        main()
+        main(usera)
     else:
-        main()
+        main(usera)
 
-def joke():
+def joke(usera):
     clear_screen()
     jokes = ["How do all the oceans say hello to each other?\n\nThey Wave", "What do you call a bear with no teeth?\n\nA Gummy bear", "What did one wall say to the other wall?\n\nMeet you at the corner", "What do you call cheese that isn't yours?\n\nNacho Cheese", "Where do cows go for entertainment?\n\nThe Moo-vies", "What do you call a pig that knows Karate?\n\nA Pork Chop!", "Why did the fish jump out of the water?\n\nBecause the sea-weed", "Why are Ghosts bad liars?\n\nBecaue you can see right through them"]
     input("( ҉ ) Here you Go!\n"
           "\n"
           "{}".format(random.choice(jokes)))
-    search()
-def loop():
+    search(usera)
+def loop(usera):
     r = ["Ha", "LOOOOOOOOOOOOOOOOOLP", "Restart to exit!", "lololodloefokog", "fuywefuwegfuyehf", "My name is Jeff", "idk"]
     input("{} | Push Enter".format(random.choice(r)))
-    loop()
-def logout():
+    loop(usera)
+def logout(usera):
     clear_screen()
     print("==========\n"
           "  Logout  \n"
@@ -2362,13 +2573,13 @@ def logout():
         print("Shutdown!")
         sys.exit(1)
     if choice == "3":
-        wait()
+        wait(usera)
     if choice == "4":
-        welcome()
+        welcome(usera)
     if choice == "0":
-        main()
+        main(usera)
     else:
-        logout()
+        logout(usera)
 
 def guestlogout():
     clear_screen()
@@ -2406,7 +2617,7 @@ def guestlogout():
         guestlogout()
 
         
-def wait():
+def wait(usera):
     clear_screen()
     print("========\n"
           "  Wait  \n"
@@ -2422,31 +2633,31 @@ def wait():
     choice = user_choice()
     if choice == "10":
         time.sleep(10)
-        main()
+        main(usera)
     if choice == "20":
         time.sleep(20)
-        main()
+        main(usera)
     if choice == "30":
         time.sleep(30)
-        main()
+        main(usera)
     if choice == "40":
         time.sleep(40)
-        main()
+        main(usera)
     if choice == "50":
         time.sleep(50)
-        main()
+        main(usera)
     if choice == "60":
         time.sleep(60)
-        main()
+        main(usera)
     if choice == "70":
         time.sleep(70)
-        main()
+        main(usera)
     if choice == "80":
         time.sleep(80)
-        main()
+        main(usera)
 
 
-def events():
+def events(usera):
     clear_screen()
     print("(A≈) ArtSystem\n"
           "==================")
@@ -2460,9 +2671,9 @@ def events():
           "0. Back")
     choice = user_choice()
     if choice == "c":
-        changelog()
+        changelog(usera)
     if choice == "e":
-        eevents()
+        eevents(usera)
     if choice == "h":
         try:
             subprocess.call(("guide/help.html"))
@@ -2470,11 +2681,11 @@ def events():
             try:
                 subprocess.call(("guide\help.html"))
             except:
-                events()
+                events(usera)
     if choice == "0":
-        main()
+        main(usera)
 
-def eevents():
+def eevents(usera):
     clear_screen()
     print("(A≈) ArtSystem Events\n"
           "=========================")
@@ -2504,16 +2715,34 @@ def eevents():
               "The Virtual Assistant cant help with everything!")
         input("\n"
               "Back")
-        eevents()
+        eevents(usera)
     if choice == "0":
-        events()
+        events(usera)
     
-def changelog():
+def changelog(usera):
     clear_screen()
     print("=================\n"
           "    Changelog    \n"
           "=================\n")
     print("Whats New in {}?".format(version))
+    print("\n"
+          "* Major Bug Fixes\n"
+          "* Added 2 users!!!!!\n"
+          "* Remade login/register screens")
+    print("\n"
+          "<. Last Update   | 0. Back")
+    choice = user_choice()
+    if choice == "<":
+        lastupdate(usera)
+    if choice == "0":
+        events(usera)
+
+def lastupdate(usera):
+    clear_screen()
+    print("=================\n"
+          "    Changelog    \n"
+          "=================\n")
+    print("Whats Was in the last update?!?!")
     print("\n"
           "* Added Lobit (Personal Assistant)\n"
           "* Added Load Application page\n"
@@ -2528,29 +2757,13 @@ def changelog():
           "* Added Events Page\n"
           "\n"
           " Too Much to Actualy add in changelog")
-    print("\n"
-          "<. Last Update   | 0. Back")
-    choice = user_choice()
-    if choice == "<":
-        lastupdate()
-    if choice == "0":
-        events()
-
-def lastupdate():
-    clear_screen()
-    print("=================\n"
-          "    Changelog    \n"
-          "=================\n")
-    print("Whats Was in the last update?!?!")
-    print("\n"
-          "* Nothing...")
     input("\nBack")
-    changelog()
+    changelog(usera)
     
-def store():
+def store(usera):
     if logind.USERNAME == "Guest":
         input("Guests Cant do that!")
-        main()
+        main(usera)
     else:
         clear_screen()
         print("=================\n"
@@ -2565,19 +2778,19 @@ def store():
         print("0. Back")
         choice = user_choice()
         if choice == "1":
-            featured()
+            featured(usera)
         if choice == "2":
-            storegames()
+            storegames(usera)
         if choice == "3":
-            apps()
+            apps(usera)
         if choice == "4":
-            lobitup()
+            lobitup(usera)
         if choice == "5":
-            passes()
+            passes(usera)
         if choice == "0":
-            main()
+            main(usera)
 
-def lobitup():
+def lobitup(usera):
     clear_screen()
     print("================\n"
           " Lobit Upgrades \n"
@@ -2588,11 +2801,11 @@ def lobitup():
           "0. Back")
     choice = user_choice()
     if choice == "1":
-        storelobitsai()
+        storelobitsai(usera)
     if choice == "0":
-        store()
+        store(usera)
 
-def featured():
+def featured(usera):
     clear_screen()
     print("================\n"
           "    Featured    \n"
@@ -2604,15 +2817,15 @@ def featured():
     print("0. Back")
     choice = user_choice()
     if choice == "1":
-        storebattlesim()
+        storebattlesim(usera)
     if choice == "2":
-        storesnake()
+        storesnake(usera)
     if choice == "3":
-        storegunrush()
+        storegunrush(usera)
     if choice == "0":
-        store()
+        store(usera)
 
-def passes():
+def passes(usera):
     clear_screen()
     print("=================\n"
           "     Passes      \n"
@@ -2622,13 +2835,13 @@ def passes():
     print("0. Back")
     choice = user_choice()
     if choice == "1":
-        gogold()
+        gogold(usera)
     if choice == "2":
-        goalphapps
+        goalphapps(usera)
     if choice == "0":
-        store()
+        store(usera)
 
-def apps():
+def apps(usera):
     clear_screen()
     print("=================\n"
           "      Apps       \n"
@@ -2639,15 +2852,15 @@ def apps():
     print("0. Back")
     choice = user_choice()
     if choice == "1":
-        storeweb()
+        storeweb(usera)
     if choice == "2":
-        storedoc()
+        storedoc(usera)
     if choice == "3":
-        storevf()
+        storevf(usera)
     if choice == "0":
-        store()
+        store(usera)
 
-def storelobitsai():
+def storelobitsai(usera):
     clear_screen()
     print("Talk to Lobit (AI)\n"
           "\n"
@@ -2686,9 +2899,9 @@ def storelobitsai():
         time.sleep(2)
         clear_screen()
         input("Done!")
-        storelobitsai()
+        storelobitsai(usera)
         
-def storeweb():
+def storeweb(usera):
     clear_screen()
     print("Py Web Browser\n"
           "\n"
@@ -2701,9 +2914,9 @@ def storeweb():
     print("0. Back")
     choice = user_choice()
     if choice == "0":
-        storegames()
+        storegames(usera)
 
-def storevf():
+def storevf(usera):
     clear_screen()
     print("VirtualFriend VF\n"
           "\n"
@@ -2722,11 +2935,11 @@ def storevf():
         notifi = open("log/notification.py", "w")
         notifi.write("import time\n"
                      "NOT = '{} |  {}'.format(time.ctime(), 'Installed Game (GunRush)')")
-        storetetris()
+        storetetris(usera)
     if choice == "0":
-        storegames()
+        storegames(usera)
         
-def storedoc():
+def storedoc(usera):
     clear_screen()
     print("Document Creator\n"
           "\n"
@@ -2751,13 +2964,13 @@ def storedoc():
             notifi = open("log/notification.py", "w")
             notifi.write("import time\n"
                          "NOT = '{} |  {}'.format(time.ctime(), 'Installed App (Document Creator)')")
-            storedoc()
+            storedoc(usera)
         else:
             input("Install Alphapps Pass to Get this!")
-            storedoc()
+            storedoc(usera)
     if choice == "0":
-        apps()
-def storegames():
+        apps(usera)
+def storegames(usera):
     clear_screen()
     print("=================\n"
           "      Games      \n"
@@ -2771,21 +2984,21 @@ def storegames():
     print("0. Back")
     choice = user_choice()
     if choice == "1":
-        storesnake()
+        storesnake(usera)
     if choice == "2":
-        storebattlesim()
+        storebattlesim(usera)
     if choice == "3":
-        storesquirrel()
+        storesquirrel(usera)
     if choice == "4":
-        slh()
+        slh(usera)
     if choice == "5":
-        storetetris()
+        storetetris(usera)
     if choice == "6":
-        storegunrush()
+        storegunrush(usera)
     if choice == "0":
-        store()
+        store(usera)
 
-def storegunrush():
+def storegunrush(usera):
     clear_screen()
     print("GunRush\n"
           "\n"
@@ -2807,10 +3020,10 @@ def storegunrush():
         notifi = open("log/notification.py", "w")
         notifi.write("import time\n"
                      "NOT = '{} |  {}'.format(time.ctime(), 'Installed Game (GunRush)')")
-        storetetris()
+        storegunrush(usera)
     if choice == "0":
-        storegames()
-def storetetris():
+        storegames(usera)
+def storetetris(usera):
     clear_screen()
     print("Tetris\n"
           "\n"
@@ -2833,11 +3046,11 @@ def storetetris():
         notifi = open("log/notification.py", "w")
         notifi.write("import time\n"
                      "NOT = '{} |  {}'.format(time.ctime(), 'Installed Game (Tetris)')")
-        storetetris()
+        storetetris(usera)
     if choice == "0":
-        storegames()
+        storegames(usera)
 
-def slh():
+def slh(usera):
     clear_screen()
     print("Santa's Little Helper\n"
           "\n"
@@ -2864,13 +3077,13 @@ def slh():
             notifi = open("log/notification.py", "w")
             notifi.write("import time\n"
                          "NOT = '{} |  {}'.format(time.ctime(), 'Installed Exclusive Game (Santas little helper!)')")
-            slh()
+            slh(usera)
         else:
-            slh()
+            slh(usera)
     if choice == "0":
-        storegames()
+        storegames(usera)
 
-def storesquirrel():
+def storesquirrel(usera):
     clear_screen()
     print("Squirrel\n"
           "\n"
@@ -2897,13 +3110,13 @@ def storesquirrel():
             notifi = open("log/notification.py", "w")
             notifi.write("import time\n"
                          "NOT = '{} |  {}'.format(time.ctime(), 'Installed Gold Game (Squirrel)')")
-            storesquirrel()
+            storesquirrel(usera)
         else:
-            storesquirrel()
+            storesquirrel(usera)
     if choice == "0":
-        storegames()
+        storegames(usera)
 
-def storesnake():
+def storesnake(usera):
     clear_screen()
     print("Snake\n"
           "\n"
@@ -2926,11 +3139,11 @@ def storesnake():
         notifi = open("log/notification.py", "w")
         notifi.write("import time\n"
                      "NOT = '{} |  {}'.format(time.ctime(), 'Installed Game (Snake)')")
-        storesnake()
+        storesnake(usera)
     if choice == "0":
-        storegames()
+        storegames(usera)
 
-def storebattlesim():
+def storebattlesim(usera):
     clear_screen()
     print("Battle Sim\n"
           "\n"
@@ -2953,12 +3166,12 @@ def storebattlesim():
         notifi = open("log/notification.py", "w")
         notifi.write("import time\n"
                      "NOT = '{} |  {}'.format(time.ctime(), 'Installed Game (Battle Sim)')")
-        storebattlesim()
+        storebattlesim(usera)
     if choice == "0":
-        storegames()
+        storegames(usera)
 
 
-def gogold():
+def gogold(usera):
     clear_screen()
     print("*Gold Game Pass*\n"
           "\n"
@@ -2976,11 +3189,11 @@ def gogold():
     if choice == "i":
         gold.write("gold = True")
         input("Gold Pass Updated!")
-        gogold
+        gogold(usera)
     if choice == "0":
-        passes()
+        passes(usera)
 
-def goalphapps():
+def goalphapps(usera):
     clear_screen()
     print("*Alphapps*\n"
           "\n"
@@ -2998,9 +3211,9 @@ def goalphapps():
     if choice == "i":
         gold.write("A = True")
         input("Alphapps Pass Updated!")
-        goalphapps
+        goalphapps(usera)
     if choice == "0":
-        passes()
+        passes(usera)
 
 
 if upg.stay == True:
