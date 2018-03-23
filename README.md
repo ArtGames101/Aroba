@@ -46,6 +46,8 @@ What things does ArtSystem have?
 * Built-in Office apps
 * Lobit  ҉    Personal Assistant
 * Multi-Users
+* Colour
+* File Manager
 
 And More!
 
