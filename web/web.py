@@ -33,7 +33,7 @@ def user_choice():
 
 def main():
     clear_screen()
-    print("Welcome {}".format(name.name))
+    print("Welcome!")
     try:
         if st.st == True:
             print("+   +   +   +   +   +   +   +   +\n"

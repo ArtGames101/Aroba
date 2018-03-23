@@ -5,6 +5,7 @@
 # (A≈) ArtSystem Aroba
 
 import sys, os, random, time, subprocess, webbrowser
+os.system("setterm -background white -foreground black")
 import urllib
 import config as c
 try:
@@ -41,11 +42,6 @@ try:
 except:
     input("( ҉ ) Lobit ERROR: Could not import data.lobit.restricted")
     pass
-# Version
-vr = "1.0"
-version = "v{}-Alpha".format(vr)
-# Next Version
-nextup = "2.0"
 try:
     error = open("log/lasterror.txt", "w")
     start = open("log/startlog.txt", "w")
@@ -60,7 +56,13 @@ except:
         webb.write("name = '{}'".format(logind.USERNAME))
     except:
         pass
-    
+# OS Imports
+try:
+    from data.reg import optype
+except:
+    print("Could not determin OS Type")
+    pass
+import requests
 webb.close()
 santa = False
 games = ["snake", "BattleSim", "squirrel", "Santa", "Tetris", "GunRush", "DocCreator", "VF"]
@@ -135,8 +137,8 @@ def new():
        subprocess.call(('notify-send', 'ArtSystem Verification', 'Please enter your 6 digit code!'))
     except:
         pass
-    print("(A≈) ArtSystem Aroba {}\n"
-          "===========================".format(vr))
+    print("(A≈) ArtSystem Aroba\n"
+          "===========================")
     print("\n"
           "Please enter your 6 digit verification code\n"
           "to continue!")
@@ -148,15 +150,50 @@ def new():
         confirm.write("new = False")
         input("Verification code accepted!")
         confirm.close()
-        neww()
+        newop()
     else:
         input("Invalid Verification Code!")
         new()
 
+def newop():
+    clear_screen()
+    print("(A≈) Operating System\n"
+          "=========================")
+    print("Choose which operating system you are running on")
+    print("\n"
+          "1. Windows (Win, Win32/64)\n"
+          "2. Linux (Ubuntu, lUbuntu, Linux Mint, Tinycore\n"
+          "3. Raspberry Pi (1, 2, 3, Other)\n"
+          "0. Other (All commands will be used when logging in etc")
+    choice = user_choice()
+    if choice == "1":
+        wn = open("data/reg/optype.py", "w")
+        wn.write("oss = 'win'")
+        wn.close()
+        input("Windows Selected\n"
+              "\n"
+              "To change this go to data/reg")
+        neww()
+    if choice == "2":
+        wn = open("data/reg/optype.py", "w")
+        wn.write("oss = 'lnx'")
+        wn.close()
+        input("Linux Selected\n"
+              "\n"
+              "To change this go to data/reg")
+        neww()
+    if choice == "3":
+        wn = open("data/reg/optype.py", "w")
+        wn.write("oss = 'rpi'")
+        wn.close()
+        input("Raspberry Pi Selected\n"
+              "\n"
+              "To change this go to data/reg")
+        neww()
 def neww():
     clear_screen()
-    print("(A≈) ArtSystem Aroba {}\n"
-          "==========================".format(vr))
+    print("(A≈) ArtSystem Aroba\n"
+          "==========================")
     print("\n"
           "Welcome to ArtSystem!\n"
           "\n"
@@ -249,22 +286,46 @@ def lobittour():
 
 def newww():
     clear_screen()
-    print("(A≈) ArtSystem Aroba {}\n"
-          "==========================".format(vr))
+    print("(A≈) ArtSystem Aroba\n"
+          "==========================")
     print("\n"
           "Your ArtSystem Comes with Restore Options and Web Protection!\n"
           "\n"
           "Info : This is the last version of Vortex but there will be software updates!\n"
           "\n"
+          "If you want to explore more about ArtSystem there is an application in the menu!\n"
           "Push Enter to Register\n")
     input(".")
     register()
 
+def exploreart(usera):
+    clear_screen()
+    print("(A≈) Explore ArtSystem\n"
+          "==========================")
+    print("\n"
+          "1. What is ArtSystem?\n"
+          "2. What is Lobit?\n"
+          "\n"
+          "More Soon!")
+    print("\n"
+          "0. Back")
+    choice = user_choice()
+    if choice == "1":
+        clear_screen()
+        print("ArtSystem is a small operating system created by ArtGames101,")
+        time.sleep(1)
+        print("it contains lots of interesting games/apps")
+        time.sleep(1)
+        exploreart(usera)
+    if choice == "2":
+        clear_screen()
+        print("Lobit is a Smart Personal assistant created by ArtGames101")
+        exploreart(usera)
 def fchangelog():
     # After update changelog
     clear_screen()
-    print("(A≈) ArtSystem Aroba {}\n"
-          "===========================".format(vr))
+    print("(A≈) ArtSystem Aroba\n"
+          "===========================")
     print("Changelog:\n"
           "* First Version")
     input("\n"
@@ -361,7 +422,7 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            |")
+    print("            \ ")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -372,11 +433,11 @@ def loading():
       "  |                  | ________  \n"
       "  |__________________|         |__+_______\n"
       "  |                  |   \n"
-      "  |                  | _+______  \n"
-      "  |                  |         |__________\n"
+      "  |                  | ________  \n"
+      "  |                  |         |_____+____\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            -")
+    print("            |")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -387,11 +448,11 @@ def loading():
       "  |                  | ________  \n"
       "  |__________________|         |_+________\n"
       "  |                  |   \n"
-      "  |                  | _+______  \n"
-      "  |                  |         |__________\n"
+      "  |                  | ________  \n"
+      "  |                  |         |_+________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            \ ")
+    print("            / ")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -406,7 +467,7 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            |")
+    print("            -")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -421,7 +482,7 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            |")
+    print("            \ ")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -432,11 +493,11 @@ def loading():
       "  |                  | __+_____  \n"
       "  |__________________|         |__________\n"
       "  |                  |   \n"
-      "  |                  | +_______  \n"
-      "  |                  |         |__________\n"
+      "  |                  | ________  \n"
+      "  |                  |         |________+_\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            /")
+    print("            |")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -451,7 +512,7 @@ def loading():
       "  |                  |         |___+______\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            -")
+    print("            /")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -466,7 +527,7 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            |")
+    print("            -")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -481,7 +542,7 @@ def loading():
       "  |                  |         |______+___\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            -")
+    print("            \ ")
     time.sleep(1)
     clear_screen()
     print("\n"
@@ -496,7 +557,7 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            \ ")
+    print("            | ")
     time.sleep(1)
     welcome()
 
@@ -557,6 +618,7 @@ def welcome():
             clear_screen()
         except:
             pass
+        os.system("setterm -background black -foreground white")
         if img.usrimg == "None":
             print("                    | Welcome to Aroba |\n"
                   "                    |------------------|\n"
@@ -569,8 +631,10 @@ def welcome():
                   "\n"
                   "\n"
                   "r. Register\n"
-                  "0. More Options                                       w. Warnings\n".format(logind1.USERNAME, logind2.USERNAME))
+                  "0. More Options                                       w. Warnings\n"
+                  "                                                                                {}".format(logind1.USERNAME, logind2.USERNAME, optype.oss))
             choice = user_choice()
+            os.system("setterm -background white -foreground black")
             if choice == "1":
                 login1()
             if choice == "2":
@@ -602,8 +666,10 @@ def welcome():
                   "\n"
                   "\n"
                   "r. Register\n"
-                  "0. More Options                                       w. Warnings\n".format(img1.usrimg, logind1.USERNAME, img2.usrimg, logind2.USERNAME))
+                  "0. More Options                                       w. Warnings\n"
+                  "                                                                                {}".format(img1.usrimg, logind1.USERNAME, img2.usrimg, logind2.USERNAME, optype.oss))
             choice = user_choice()
+            os.system("setterm -background white -foreground black")
             if choice == "1":
                 login1()
             if choice == "2":
@@ -883,7 +949,7 @@ def login2():
     if usrs == loginp2.PASSWORD:
         startsound()
     else:
-        loginf1()
+        loginf2()
 
 def loginf2():
     clear_screen()
@@ -968,13 +1034,22 @@ def regwarn():
 
 def regwh():
     clear_screen()
-    print("Registration\n"
-          "================")
-    print("\n"
-          "1. {}\n"
-          "2. {}\n"
-          "\n"
-          "0. Back")
+    try:
+        print("Registration\n"
+              "================")
+        print("\n"
+              "1. {}\n"
+              "2. {}\n"
+              "\n"
+              "0. Back".format(logind1.USERNAME, logind2.USERNAME))
+    except:
+        print("Registration\n"
+              "================")
+        print("\n"
+              "1. User 1\n"
+              "2. User 2\n"
+              "\n"
+              "0. Back")
     choice = user_choice()
     if choice == "1":
         usr = "1"
@@ -1102,10 +1177,6 @@ def registerl(usr):
             registeri(usr)
 
 def registeri(usr):
-    try:
-        img = open("user/img.py", "w")
-    except:
-        img = open("Aroba/user/img.py", "w")
     clear_screen()
     print("Create Account\n"
           "===============\n")
@@ -1300,13 +1371,13 @@ def admin():
             size = '{:.2f} MiB'.format(__import__('psutil').Process().memory_full_info().uss / 1024 ** 2)
             print("(A≈) System Information")
             print("\n"
-                  "Version {}, {}\n"
+                  "Version Aroba\n"
                   "\n"
                   "ArtSystem Size : {}\n"
                   "Ping Time : {}\n"
                   "Running on : {}\n"
                   "\n"
-                  "(c) ArtGames101".format(vr, version, size, (str(round((t2-t1)*1000))), operate))
+                  "(c) ArtGames101".format(size, (str(round((t2-t1)*1000))), operate))
             input("\n"
                   "Back")
             admin()
@@ -1322,13 +1393,13 @@ def admin():
             t2 = time.perf_counter()
             print("(A≈) System Information")
             print("\n"
-                  "Version {}, {}\n"
+                  "Version Aroba\n"
                   "\n"
                   "ArtSystem Size : Unknown\n"
                   "Ping Time : {}ms\n"
                   "Running on : {}\n"
                   "\n"
-                  "(c) ArtGames101".format(vr, version, (str(round((t2-t1)*1000))), operate))
+                  "(c) ArtGames101".format(str(round((t2-t1)*1000))), operate)
             input("\n"
                   "Back")
             admin()
@@ -1399,37 +1470,42 @@ def main(usera):
     else:
         pass
     print("n. Notifications")
+    os.system("setterm -background white -foreground red")
     print("\n\n"
           " _________________________________________________________________________________________________________\n"
           "|a. (A≈). Start | u. Upgrade Packages | l. Load App | o. Office  | t. Tools   | {}  |\n"
           "|_______________|_____________________|_____________|____________|____________|___________________________|".format(time.ctime()))
+    os.system("setterm -background white -foreground black")
     choice = user_choice()
     if choice == "(o)":
         gm(usera)
     if choice == "s":
-        if parent.PAPASS == None:
-            store(usera)
-        else:
-            clear_screen()
-            print("Enter Parental Control Password")
-            choice = user_choice()
-            if choice == parent.PAPASS:
+        if usera == logind1.USERNAME:
+            if parent1.PAPASS == None:
                 store(usera)
             else:
-                main(usera)
+                clear_screen()
+                print("Enter Parental Control Password")
+                choice = user_choice()
+                if choice == parent.PAPASS:
+                    store(usera)
+                else:
+                    main(usera)
+        if usera == logind2.USERNAME:
+            if parent2.PAPASS == None:
+                store(usera)
+            else:
+                clear_screen()
+                print("Enter Parental Control Password")
+                choice = user_choice()
+                if choice == parent.PAPASS:
+                    store(usera)
+                else:
+                    main(usera)
     if choice == "e":
         events(usera)
     if choice == "set":
-        if parent.PAPASS == None:
-            settings(usera)
-        else:
-            clear_screen()
-            print("Enter Parental Control Password")
-            choice = user_choice()
-            if choice == parent.PAPASS:
-                settings(usera)
-            else:
-                main(usera)
+        settings(usera)
     if choice == "sa":
         if santa == True:
             santagift(usera)
@@ -2050,44 +2126,34 @@ def notification(usera):
     else:
         notification(usera)
 def settings(usera):
-    if logind.USERNAME == "Guest":
-        input("Guests cant do that!")
-        guestmain()
+    clear_screen()
+    print("============\n"
+          "  Settings  \n"
+          "============\n")
+    print("Change Settings here!")
+    print("\a")
+    print("s. System Info")
+    print("u. Username")
+    print("pass. Password")
+    print("\n"
+          "a. Advanced Settings\n"
+          "r. Restart (Saves Settings)")
+    print("0. Back")
+    choice = user_choice()
+    if choice == "s":
+        sysinfo(usera)
+    if choice == "u":
+        usernamec(usera)
+    if choice == "pass":
+        passchange(usera)
+    if choice == "a":
+        advancedsettings(usera)
+    if choice == "r":
+        subprocess.call((sys.executable, "run.py"))
+    if choice == "0":
+        main(usera)
     else:
-        clear_screen()
-        print("============\n"
-              "  Settings  \n"
-              "============\n")
-        print("Change Settings here!")
-        print("\a")
-        print("s. System Info")
-        print("u. Username")
-        print("pass. Password")
-        print("p. Parental Control")
-        print("\n"
-              "a. Advanced Settings\n"
-              "r. Restart (Saves Settings)")
-        print("0. Back")
-        choice = user_choice()
-        if choice == "s":
-            sysinfo(usera)
-        if choice == "u":
-            usernamec(usera)
-        if choice == "pass":
-            passchange(usera)
-        if choice == "p":
-            if parent.PAPASS == None:
-                parentalcontrol(usera)
-            else:
-                parentalsettings(usera)
-        if choice == "a":
-            advancedsettings(usera)
-        if choice == "r":
-            subprocess.call((sys.executable, "run.py"))
-        if choice == "0":
-            main(usera)
-        else:
-            settings(usera)
+        settings(usera)
 
 def advancedsettings(usera):
     clear_screen()
@@ -2362,8 +2428,10 @@ def menu(usera):
     print("{}\n"
           "===================".format(usera))
     print("1. Office\n"
-          "2. ArtSystem Store\n"
-          "3. Settings\n"
+          "2. File Explorer\n"
+          "3. Discover ArtSystem\n"
+          "4. ArtSystem Store\n"
+          "5. Settings\n"
           "  _____________________\n"
           "s.|Search              | 0. Shutdown Options\n"
           "  |____________________|\n"
@@ -2374,8 +2442,12 @@ def menu(usera):
     if choice == "1":
         office(usera)
     if choice == "2":
-        store(usera)
+        subprocess.call((sys.executable, "files/manager.py"))
     if choice == "3":
+        exploreart(usera)
+    if choice == "4":
+        store(usera)
+    if choice == "5":
         settings(usera)
     if choice == "0":
         logout(usera)
@@ -2575,7 +2647,7 @@ def logout(usera):
     if choice == "3":
         wait(usera)
     if choice == "4":
-        welcome(usera)
+        welcome()
     if choice == "0":
         main(usera)
     else:
@@ -2761,34 +2833,30 @@ def lastupdate(usera):
     changelog(usera)
     
 def store(usera):
-    if logind.USERNAME == "Guest":
-        input("Guests Cant do that!")
+    clear_screen()
+    print("=================\n"
+          " ArtSystem Store \n"
+          "=================\n")
+    print("Categories:")
+    print("1. Featured")
+    print("2. Games")
+    print("3. Apps")
+    print("4. Lobit Upgrades")
+    print("4. Passes")
+    print("0. Back")
+    choice = user_choice()
+    if choice == "1":
+        featured(usera)
+    if choice == "2":
+        storegames(usera)
+    if choice == "3":
+        apps(usera)
+    if choice == "4":
+        lobitup(usera)
+    if choice == "5":
+        passes(usera)
+    if choice == "0":
         main(usera)
-    else:
-        clear_screen()
-        print("=================\n"
-              " ArtSystem Store \n"
-              "=================\n")
-        print("Categories:")
-        print("1. Featured")
-        print("2. Games")
-        print("3. Apps")
-        print("4. Lobit Upgrades")
-        print("4. Passes")
-        print("0. Back")
-        choice = user_choice()
-        if choice == "1":
-            featured(usera)
-        if choice == "2":
-            storegames(usera)
-        if choice == "3":
-            apps(usera)
-        if choice == "4":
-            lobitup(usera)
-        if choice == "5":
-            passes(usera)
-        if choice == "0":
-            main(usera)
 
 def lobitup(usera):
     clear_screen()

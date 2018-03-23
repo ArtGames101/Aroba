@@ -1,1 +1,1 @@
-PASSWORD = 'None'
+PASSWORD = 'art'
