@@ -1,5 +1,5 @@
 import sys, os, subprocess, time
-
+os.system("setterm -background blue -foreground white")
 IS_WINDOWS = os.name == "nt"
 IS_MAC = sys.platform == "darwin"
 

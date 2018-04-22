@@ -3,9 +3,16 @@
 # Lobit ҉ (c) MrBackPack 2018 (Designed by MrBackPack, Programmed by ArtGames101)
 
 # (A≈) ArtSystem Aroba
-
-import sys, os, random, time, subprocess, webbrowser
+print("[ARTSYS] Loading Assets/Imports")
+import sys, os, random, time, subprocess, webbrowser, pygame, smtplib
+print("[ARTSYS] Done")
+print("[ARTSYS] Setting SCOL")
 os.system("setterm -background white -foreground black")
+print("[ARTSYS] Done")
+print("[ARTSYS] Loading Sound Module")
+pygame.init()
+print("[ARTSYS] Done")
+print("[ARTSYS] Loading User/ARTSYS imports")
 import urllib
 import config as c
 try:
@@ -71,6 +78,7 @@ gm = 6
 ap = 3
 pa = 2
 ad = ["Go Gold and get ALPHA games that are comming soon!", "Get Alphapps to install the newest apps!", "Squirrel (GO GOLD!) (Eat other squirrels to become the OMEGA SQUIRREL)", "Snake (a game where you have to eat apples!)", "BattleSim (The best battle simulator for python!)", "Tetris  (A Game where you have to stack blocks!)"]
+print("[ARTSYS] Loading Game imports")
 try:
     import snake
 except Exception as e:
@@ -114,7 +122,7 @@ except Exception as e:
         error.write(exc)
     except:
         pass
-
+print("[ARTSYS] Done")
 
 IS_WINDOWS = os.name == "nt"
 IS_MAC = sys.platform == "darwin"
@@ -204,6 +212,7 @@ def neww():
           "* Browse the web\n"
           "* Create & Run Applications\n"
           "* Browse Updates & Events\n"
+          "* Send Emails\n"
           " And More!")
     input("\n"
           "Enter")
@@ -364,7 +373,9 @@ def warn():
     loading()
 
 def loading():
+    print("Executing ARTSYS Load Screen")
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   ____+___  \n"
@@ -377,9 +388,11 @@ def loading():
       "  |                  |         |_+________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            |")
+    os.system("setterm -background white -foreground blue")
+    print("          * ' '")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   __+_____  \n"
@@ -392,9 +405,11 @@ def loading():
       "  |                  |         |_____+____\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            /")
+    os.system("setterm -background white -foreground blue")
+    print("          ' * '")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   ______+_  \n"
@@ -407,9 +422,11 @@ def loading():
       "  |                  |         |_+________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            -")
+    os.system("setterm -background white -foreground blue")
+    print("          ' ' *")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   __+_____  \n"
@@ -422,9 +439,11 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            \ ")
+    os.system("setterm -background white -foreground blue")
+    print("          * ' '")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   ________  \n"
@@ -437,9 +456,11 @@ def loading():
       "  |                  |         |_____+____\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            |")
+    os.system("setterm -background white -foreground blue")
+    print("          ' * '")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   ________  \n"
@@ -452,9 +473,11 @@ def loading():
       "  |                  |         |_+________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            / ")
+    os.system("setterm -background white -foreground blue")
+    print("          ' ' *")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   +_______  \n"
@@ -467,9 +490,11 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            -")
+    os.system("setterm -background white -foreground blue")
+    print("          * ' '")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   ________  \n"
@@ -482,9 +507,11 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            \ ")
+    os.system("setterm -background white -foreground blue")
+    print("          ' * '")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   ________  \n"
@@ -497,9 +524,11 @@ def loading():
       "  |                  |         |________+_\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            |")
+    os.system("setterm -background white -foreground blue")
+    print("          ' ' *")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   +_______  \n"
@@ -512,9 +541,11 @@ def loading():
       "  |                  |         |___+______\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            /")
+    os.system("setterm -background white -foreground blue")
+    print("          * ' '")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   ________  \n"
@@ -527,9 +558,11 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            -")
+    os.system("setterm -background white -foreground blue")
+    print("          ' * '")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   ____+___  \n"
@@ -542,9 +575,11 @@ def loading():
       "  |                  |         |______+___\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            \ ")
+    os.system("setterm -background white -foreground blue")
+    print("          ' ' *")
     time.sleep(1)
     clear_screen()
+    os.system("setterm -background white -foreground black")
     print("\n"
       "     / -----------\      \n"
       "    /              \   _____+__  \n"
@@ -557,8 +592,10 @@ def loading():
       "  |                  |         |__________\n"
       "                         \n"
       "        ArtSystem        \n")
-    print("            | ")
+    os.system("setterm -background white -foreground blue")
+    print("          * ' '")
     time.sleep(1)
+    os.system("setterm -background white -foreground black")
     welcome()
 
     
@@ -590,8 +627,7 @@ def welcome():
         print("\n"
               "1. Register (Will Write Fresh data)\n"
               "2. Guest Account  (Use Guest account for now!)\n"
-              "3. Restore  (Restore 'LAST' Save data)\n"
-              "4. Guide    (See the ArtSystem Guide)\n")
+              "3. Guide    (See the ArtSystem Guide)\n")
         subprocess.call((sys.executable, "sounds/error.py"))
         choice = user_choice()
         if choice == "1":
@@ -599,8 +635,6 @@ def welcome():
         if choice == "2":
             guestmain()
         if choice == "3":
-            restore()
-        if choice == "4":
             try:
                 webbrowser.open("guide/help.html")
             except:
@@ -613,15 +647,10 @@ def welcome():
     try:
         subprocess.call(('notify-send', 'ArtSystem Startup', 'ArtSystem has sucessfuly Loaded!'))
     except:
-        try:
-            subprocess.call(('zenity', '--info', '--text="ArtSystem Aroba has sucessfuly Loaded!"', '--timeout=5 2'))
-            clear_screen()
-        except:
-            pass
-        os.system("setterm -background black -foreground white")
+        pass
         if img.usrimg == "None":
-            print("                    | Welcome to Aroba |\n"
-                  "                    |------------------|\n"
+            print("Aroba\n"
+                  "\n"
                   "\n"
                   "1. [?] {}\n"
                   "\n"
@@ -655,8 +684,8 @@ def welcome():
             else:
                 welcome()
         else:
-            print("                    | Welcome to Aroba |\n"
-                  "                    |------------------|\n"
+            print("Aroba\n"
+                  "\n"
                   "\n"
                   "1. [{}] {}\n"
                   "\n"
@@ -706,16 +735,13 @@ def mainmore():
           "==============\n")
     print("\n"
           "1. Refer\n"
-          "2. Restore\n"
-          "3. Shutdown Options\n"
+          "2. Shutdown Options\n"
           "\n"
            "0. Back")
     choice = user_choice()
     if choice == "1":
         refer()
     if choice == "2":
-        restore()
-    if choice == "3":
         wshutdown()
     if choice == "0":
         welcome()
@@ -733,46 +759,21 @@ def refer():
     input("\n"
           "Back")
     mainmore()
-
-def restore():
-    clear_screen()
-    try:
-        from data.restore import name, passw
-    except:
-        input("No Data to restore!")
-        mainmore()
-    print("=========\n"
-          " Restore \n"
-          "=========\n")
-    print("ArtSystem is restoring your old data!")
-    try:
-        usr = open("user/user1/logindata.py", "w")
-        usr.write("USERNAME = '{}'".format(name.old))
-        pa = open("user/user1/loginpass.py", "w")
-        pa.write("PASSWORD = '{}'".format(passw.old))
-        time.sleep(5)
-        input("ArtSystem Restored!")
-        usr.close()
-        pa.close()
-        subprocess.call((sys.executable, "run.py"))
-    except:
-        usr = open("Aroba/user/user1/logindata.py", "w")
-        usr.write("USERNAME = '{}'".format(name.old))
-        pa = open("Aroba/user/user1/loginpass.py", "w")
-        pa.write("PASSWORD = '{}'".format(passw.old))
-        time.sleep(5)
-        input("ArtSystem Restored!")
-        usr.close()
-        pa.close()
-        subprocess.call((sys.executable, "run.py"))
     
 def wshutdown():
     clear_screen()
     print("==========\n"
           " Shutdown \n"
           "==========\n")
-    print("1. Shutdown")
-    print("2. Restart")
+    print("1. Stop Scripts")
+    if optype.oss == "rpi":
+        print("2. Shutdown")
+    else:
+        pass
+    if optype.oss == "rpi":
+        print("3. Restart")
+    else:
+        print("2. Restart")
     print("\n"
           "0. Back")
     choice = user_choice()
@@ -793,7 +794,24 @@ def wshutdown():
         print("Shutdown!")
         clear_screen()
     if choice == "2":
-        subprocess.call((sys.executable, "run.py"))
+        if optype.oss == "rpi":
+            clear_screen()
+            print("Are you sure you want to shutdown/reboot your raspberry pi?")
+            print("1. Shutdown   | 2. Reboot | 0. Exit")
+            choice = user_choice()
+            if choice == "1":
+                os.system("sudo shutdown -h now")
+            if choice == "2":
+                os.system("sudo shutdown -r now")
+            if choice == "0":
+                welcome()
+        else:
+            subprocess.call((sys.executable, "run.py"))
+    if choice == "3":
+        if optype.oss == "rpi":
+            subprocess.call((sys.executable, "run.py"))
+        else:
+            pass
     if choice == "0":
         welcome()
 
@@ -1068,8 +1086,6 @@ def register(usr):
     clear_screen()
     print("Create Account\n"
           "===============\n")
-    print("1 Username  2 Password 3 Reminder 4 Avatar\n"
-          "----------")
     print("Name Yourself")
     choice = user_choice()
     if usr == "1":
@@ -1092,8 +1108,6 @@ def registerp(usr):
     clear_screen()
     print("Create Account\n"
           "===============\n")
-    print("✓ Username  2 Password 3 Reminder 4 Avatar\n"
-          "----------------------")
     print("Choose a Password")
     choice = user_choice()
     if choice == "":
@@ -1107,7 +1121,7 @@ def registerp(usr):
                 loginpw = open("Aroba/user/user1/loginpass.py", "w")
             loginpw.write("PASSWORD = '{}'".format(choice))
             loginpw.close()
-            registerl(usr)
+            registerem(usr)
         if usr == "2":
             try:
                 loginpw = open("user/user2/loginpass.py", "w")
@@ -1115,8 +1129,33 @@ def registerp(usr):
                 loginpw = open("Aroba/user/user2/loginpass.py", "w")
             loginpw.write("PASSWORD = '{}'".format(choice))
             loginpw.close()
-            registerl(usr)
+            registerem(usr)
 
+def registerem(usr):
+    clear_screen()
+    print("Create Account\n"
+          "===============\n")
+    print("Enter Email")
+    print("?: We need your email for email functions")
+    em = user_choice()
+    if usr == "1":
+        e = open("user/user1/email.py", "w")
+        clear_screen()
+        print("Enter Email Password")
+        pa = user_choice()
+        e.write("email = '{}'\n"
+                "epassw = '{}'\n".format(em, pa))
+        e.close()
+        registerl(usr)
+    if usr == "2":
+        e = open("user/user2/email.py", "w")
+        clear_screen()
+        print("Enter Email Password")
+        pa = user_choice()
+        e.write("email = '{}'\n"
+                "epassw = '{}'\n".format(em, pa))
+        e.close()
+        registerl(usr)
 def registerl(usr):
     clear_screen()
     print("Create Account\n"
@@ -1350,10 +1389,30 @@ def admin():
               "stop   (Runs Stop Command)\n"
               "exit   (Exits Console)\n"
               "restrt (Restart ArtSystem)\n"
-              "sysin  (See the System Info)\n")
+              "sysin  (See the System Info)\n"
+              "tp     (teleport to a def function)\n")
         input("\n"
               "Enter")
         admin()
+    if choice == "tp":
+        clear_screen()
+        print("which user would you like to go as?")
+        print("1. User 1")
+        print("2. User 2")
+        print("3. Administrator")
+        print("0. Back")
+        choice = user_choice()
+        if choice == "1":
+            usera = logind1.USERNAME
+        if choice == "2":
+            usera = logind2.USERNAME
+        if choice == "3":
+            usera = "Administrator"
+        if choice == "0":
+            admin()
+        print("Where do you want to go?")
+        ch = user_choice()
+        eval(ch)
     if choice == "sysin":
         clear_screen()
         # Ping (str(round((t2-t1)*1000)
@@ -1464,6 +1523,7 @@ def main(usera):
     print("e. ArtSystem Aroba Events/help/Changelog")
     print("s. Store")
     print("w. Quantum WebBrowser")
+    print("em. Email")
     print("set. Settings")
     if santa == True:
         print("sa. Santa's Gift!")
@@ -1504,6 +1564,8 @@ def main(usera):
                     main(usera)
     if choice == "e":
         events(usera)
+    if choice == "em":
+        emailser(usera)
     if choice == "set":
         settings(usera)
     if choice == "sa":
@@ -1531,7 +1593,60 @@ def main(usera):
         tools(usera)
     else:
         main(usera)
-
+def emailser(usera):
+    clear_screen()
+    print("Connecting to server... (if it does not work restart ArtSystem)")
+    server = smtplib.SMTP("smtp.gmail.com", "587")
+    if usera == logind1.USERNAME:
+        try:
+            from user.user1 import email
+            print("[Server] Logged in!")
+            server.login(email.email, email.epassw)
+            print("Who are you sending an email to? (example@gmail.com)")
+            u = user_choice()
+            print("What is the email title?")
+            t = user_choice()
+            print("what is the email text (message)")
+            m = user_choice()
+            msg = "{}\n==============\n\n{}".format(t, m)
+            try:
+                server.sendmail(email.email, u, msg)
+                input("Sent!")
+                main(usera)
+            except:
+                input("Unable to send!")
+                main(usera)
+        except:
+            input("Server Error:\n"
+                  "Could not connect\n"
+                  "\n"
+                  "Please check your internet/email file!")
+            main(usera)
+    if usera == logind2.USERNAME:
+        try:
+            from user.user2 import email
+            server.login(email.email, email.epassw)
+            print("Who are you sending an email to? (example@gmail.com)")
+            u = user_choice()
+            print("What is the email title?")
+            t = user_choice()
+            print("what is the email text (message)")
+            m = user_choice()
+            msg = "{}\n==============\n\n{}".format(t, m)
+            try:
+                server.sendmail(email.email, u, msg)
+                input("Sent!")
+                main(usera)
+            except:
+                input("Unable to send!")
+                main(usera)
+        except:
+            input("Server Error:\n"
+                  "Could not connect\n"
+                  "\n"
+                  "Please check your internet/email file!")
+            main(usera)
+            
 def tools(usera):
     clear_screen()
     print("(A≈) ArtSystem Tools\n"
@@ -2084,7 +2199,7 @@ def guestmain():
         input("Guests Can't do that!")
         guestmain()
     if choice == "c":
-        changelog()
+        input("Guests cant do that!")
     if choice == "set":
         input("Guests Can't do that!")
         guestmain()
@@ -2105,7 +2220,10 @@ def guestmain():
     else:
         guestmain()
 
-
+def guestmenu():
+    clear_screen()
+    input("WIP")
+    guestmain()
 def notification(usera):
     clear_screen()
     print("=====================\n"
@@ -2289,14 +2407,26 @@ def deleteacc(usera):
           "y. Yes  | n. No")
     choice = user_choice()
     if choice == "y":
-        loginw = open("user/logindata.py", "w")
-        loginpw = open("user/loginpass.py", "w")
-        loginw.write("USERNAME = ")
-        loginpw.write("PASSWORD = ")
-        input("Enter to continue")
-        loginw.close()
-        loginpw.close()
-        subprocess.call((sys.executable, "run.py"))
+        if usera == logind1.USERNAME:
+            loginw = open("user/user1/logindata.py", "w")
+            loginpw = open("user/user1/loginpass.py", "w")
+            loginw.write("USERNAME = 'None'")
+            loginpw.write("PASSWORD = 'None'")
+            input("Enter to continue")
+            loginw.close()
+            loginpw.close()
+            subprocess.call((sys.executable, "run.py"))
+        if usera == logind2.USERNAME:
+            loginw = open("user/user2/logindata.py", "w")
+            loginpw = open("user/user2/loginpass.py", "w")
+            loginw.write("USERNAME = 'None'")
+            loginpw.write("PASSWORD = 'None'")
+            input("Enter to continue")
+            loginw.close()
+            loginpw.close()
+            subprocess.call((sys.executable, "run.py"))
+    if choice == "n":
+        advancedsettings()
 def override(usera):
     if parent.PAPASS == None:
         clear_screen()
@@ -2376,11 +2506,15 @@ def usernamec(usera):
     print("============\n"
           "  Username  \n"
           "============\n")
-    loginw = open("user/logindata.py", "w")
     print("\n"
           "New Username :")
     choice = user_choice()
-    loginw.write("USERNAME = '{}'".format(choice))
+    if usera == logind1.USERNAME:
+        loginw = open("user/user1/logindata.py", "w")
+        loginw.write("USERNAME = '{}'".format(choice))
+    if usera == logind2.USERNAME:
+        loginw = open("user/user2/logindata.py", "w")
+        loginw.write("USERNAME = '{}'".format(choice))
     input("Done!")
     loginw.close()
     settings(usera)
@@ -2392,9 +2526,13 @@ def passchange(usera):
           "============\n")
     print("\n"
           "New Password :")
-    loginpw = open("user/loginpass.py", "w")
     choice = user_choice()
-    loginpw.write("USERNAME = '{}'".format(choice))
+    if usera == logind1.USERNAME:
+        loginpw = open("user/user1/loginpass.py", "w")
+        loginpw.write("PASSWORD = '{}'".format(choice))
+    if usera == logind2.USERNAME:
+        loginpw = open("user/user2/loginpass.py", "w")
+        loginpw.write("PASSWORD = '{}'".format(choice))
     input("Done!")
     loginpw.close()
     settings(usera)
@@ -2470,6 +2608,10 @@ def search(usera):
               "e. Back")
         choice = user_choice()
         if choice in lrist.phra:
+            if choice == lrist.kys:
+                clear_screen()
+                input("Have fun in the void :D")
+                pygame.display.set_mode( ( 1024, 768 ), pygame.FULLSCREEN )
             if choice == lrist.sd:
                 clear_screen()
                 print("( ҉ ) 3...")
@@ -2553,49 +2695,46 @@ def search(usera):
             if choice == "0":
                 search(usera)
         if choice == "e":
-            main()
+            main(usera)
         else:
-            try:
-                subprocess.call((sys.executable, "data/lobit/sai.py"))
-            except:
+            clear_screen()
+            print("( ҉ ) I Did not understand what you searched for '{}':\n"
+                  "Did you mean?:\n"
+                  "\n"
+                  "1. Settings\n"
+                  "2. Quantum WebBrowser\n"
+                  "3. System Info\n"
+                  "4. How do i find the Admin Console\n"
+                  "5. Tell A Joke\n"
+                  "6. Who are you\n"
+                  "7. Other\n"
+                  "\n"
+                  "0. Search again".format(choice))
+            choice = user_choice()
+            if choice == "1":
+                settings(usera)
+            if choice == "2":
+                subprocess.call((sys.executable, "web/web.py"))
+            if choice == "3":
+                sysinfo(usera)
+            if choice == "4":
                 clear_screen()
-                print("( ҉ ) I Did not understand what you searched for '{}':\n"
-                      "Did you mean?:\n"
+                input("You can Access The Admin Console when at the login page by typing 'admin'!")
+                search(usera)
+            if choice == "5":
+                joke(usera)
+            if choice == "6":
+                clear_screen()
+                print("My name is Lobit ҉  and i am Your Personal Assistant for ArtSystem!\n"
+                      "I can help you find Applications that you are looking for, Tell Jokes,\n"
+                      "And Help you find information about ArtSystem!\n"
                       "\n"
-                      "1. Settings\n"
-                      "2. Quantum WebBrowser\n"
-                      "3. System Info\n"
-                      "4. How do i find the Admin Console\n"
-                      "5. Tell A Joke\n"
-                      "6. Who are you\n"
-                      "7. Other\n"
-                      "\n"
-                      "0. Search again".format(choice))
-                choice = user_choice()
-                if choice == "1":
-                    settings(usera)
-                if choice == "2":
-                    subprocess.call((sys.executable, "web/web.py"))
-                if choice == "3":
-                    sysinfo(usera)
-                if choice == "4":
-                    clear_screen()
-                    input("You can Access The Admin Console when at the login page by typing 'admin'!")
-                    search(usera)
-                if choice == "5":
-                    joke(usera)
-                if choice == "6":
-                    clear_screen()
-                    print("My name is Lobit ҉  and i am Your Personal Assistant for ArtSystem!\n"
-                          "I can help you find Applications that you are looking for, Tell Jokes,\n"
-                          "And Help you find information about ArtSystem!\n"
-                          "\n"
-                          "I cant Wait to help you!")
-                    input("\n"
-                          "Back")
-                    search(usera)
-                if choice == "0":
-                    search(usera)
+                      "I cant Wait to help you!")
+                input("\n"
+                      "Back")
+                search(usera)
+            if choice == "0":
+                search(usera)
     if active.active == False:
         clear_screen()
         print("( ҉ ) Opps! Looks like i have been disabled!")
